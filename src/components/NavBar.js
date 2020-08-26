@@ -12,7 +12,7 @@ const NavBarStyled = styled.header`
     width: 100vw;
     display: flex;
     justify-content: space-between;
-    alighn-items: center;
+    align-items: center;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #FEEED7;
@@ -37,15 +37,13 @@ const ImgLogo = styled.img`
     width: 50px;
 `;
 
-const ButtonHeader = styled.div`
+const ButtonHeader = styled.button`
     display: block;
     position: relative;
     height: 40px;
-    background-color:
-
-    :hover {
-        cursor: pointer;
-    }
+    background-color: transparent;
+    border: 0;
+    padding: 0;
 `;
 
 const ButtonHeaderSecondary = styled.div`
