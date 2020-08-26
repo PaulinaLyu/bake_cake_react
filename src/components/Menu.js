@@ -6,23 +6,30 @@ import { Banner } from './Banner';
 
 const MenuStyled = styled.main`
 	margin-top: 80px;
+	background-color: #D2DBDD;
 `;
 
 const SectionMenu = styled.section`
 	padding: 30px;
 `;
 
-export const Menu = () => (
+export const Menu = ({ setOpenItem }) => (
 	<MenuStyled>
-		<Banner></Banner>
+		<Banner />
 		<SectionMenu>
 			<h2>Bakery products</h2>
-			<ListItem itemList = {dbMenu.burger} />
+			<ListItem
+				itemList={dbMenu.burger}
+				setOpenItem={setOpenItem}
+			/>
 		</SectionMenu>
 
 		<SectionMenu>
 			<h2>Snacks & drinks</h2>
-			<ListItem itemList = {dbMenu.other} />
+			<ListItem
+				itemList={dbMenu.other}
+				setOpenItem={setOpenItem}
+			/>
 		</SectionMenu>
 	</MenuStyled>
 );
