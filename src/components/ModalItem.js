@@ -27,13 +27,14 @@ const Banner = styled.div`
 	background-image: url(${({img}) => img});
 	background-size: cover;
 	background-position: center;
-	margin-bottom: 20px;
 `;
 
-const ModalContent = styled.div`
-	padding: 20px;
+const ModalContent = styled.section`
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100% - 200px);
+	padding: 30px;
 `;
 
 const ModalPrice = styled.div`
