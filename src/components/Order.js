@@ -41,25 +41,28 @@ const TotalPrice= styled.div`
 	margin-left: 20px;
 `;
 
+const EmptyList= styled.p`
+	text-align: center;
+`;
 
 
-export const Order = () => {
+export const Order = ({ orders }) => {
 	return (
 		<OrderStyled>
 			<OrderTitle>Your order</OrderTitle>
 			<OrderContent>
-				<OrderList>
-					<OrderListItem />
-					<OrderListItem />
-					<OrderListItem />
-				</OrderList>
+			{orders.length ?
+			<OrderList>
+				{orders.map(order => <OrderListItem order= {order} />)}
+			</OrderList> :
+			<EmptyList>The order list is empty</EmptyList>}
 			</OrderContent>
 			<Total>
 				<span>Total</span>
 				<span>5</span>
 				<TotalPrice>850 P</TotalPrice>
 			</Total>
-			<Button></Button>
+			<Button>Сheckout</Button>
 		</OrderStyled>
 	)
 }

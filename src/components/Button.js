@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const ButtonStyled = styled.button`
+export const Button = styled.button`
     display: block;
 	height: 50px;
 	width: 250px;
@@ -22,7 +21,3 @@ const ButtonStyled = styled.button`
 			border-style: solid;
 		}
 `;
-
-export const Button = () => (
-	<ButtonStyled>Add</ButtonStyled>
-);

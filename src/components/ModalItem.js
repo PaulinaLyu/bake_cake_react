@@ -47,15 +47,22 @@ const ModalInfo = styled.div`
 	justify-content: space-between;
 `;
 
-export const ModalItem = ({ openItem, setOpenItem }) => {
+export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
-	function closeModal(e) {
+	const closeModal = e => {
 		if (e.target.id === 'overlay') {
 			setOpenItem(null);
 		}
 	}
 
-	if (!openItem) return null;
+	const order = {
+		...openItem
+	};
+	const addToOrder = () => {
+		setOrders([...orders, order])
+		setOpenItem(null);
+	}
+
 	return (
 		<Overlay id="overlay" onClick={closeModal}>
 			<Modal>
@@ -66,7 +73,7 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
 						<ModalPrice>{openItem.price.toLocaleString('ru-RU' , 
 						{style: 'currency', currency: 'RUB'})}</ModalPrice>
 					</ModalInfo>
-					<Button />
+					<Button onClick={addToOrder}>Add</Button>
 				</ModalContent>
 			</Modal>
 		</Overlay>
