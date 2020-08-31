@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Button } from '../Essentials/Button';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
+import { formatCurrency } from '../Functions/secondaryFunction';
 
 const Overlay = styled.div`
 	position: fixed;
@@ -83,16 +84,14 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 				<ModalContent>
 					<ModalInfo>	
 						{openItem.name}				
-						<ModalPrice>{openItem.price.toLocaleString('ru-RU' , 
-						{style: 'currency', currency: 'RUB'})}</ModalPrice>
+						<ModalPrice>{formatCurrency(openItem.price)}</ModalPrice>
 					</ModalInfo>
 					<CountItem {...counter}/>
 					<TotalPriceItem>
 						<span>Price:</span>
-						<span>{totalPriceItems(order).toLocaleString('ru-RU' , 
-						{style: 'currency', currency: 'RUB'})}</span>
+						<span>{formatCurrency(totalPriceItems(order))}</span>
 					</TotalPriceItem>
-					<Button onClick={addToOrder}>Add</Button>
+					<Button onClick={addToOrder}>Add to basket</Button>
 				</ModalContent>
 			</Modal>
 		</Overlay>

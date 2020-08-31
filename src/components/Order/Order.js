@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Essentials/Button';
 import { OrderListItem } from './OrderListItem';
-import { totalPriceItems } from '../Modal/ModalItem'
+import { totalPriceItems } from '../Functions/secondaryFunction';
+import { formatCurrency } from '../Functions/secondaryFunction';
 
 const OrderStyled = styled.section`
 	position: fixed;
@@ -64,11 +65,9 @@ export const Order = ({ orders }) => {
 			<Total>
 				<span>Total</span>
 				<span>5</span>
-				<TotalPrice>{total.toLocaleString('ru-RU' , 
-					{style: 'currency', currency: 'RUB'})}</TotalPrice>
+				<TotalPrice>{formatCurrency(total)}</TotalPrice>
 			</Total>
 			<Button>Сheckout</Button>
 		</OrderStyled>
 	)
 }
-
