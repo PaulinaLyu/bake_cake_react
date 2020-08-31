@@ -49,6 +49,15 @@ export const GlobalStyle = createGlobalStyle`
 		}
 	}
 
+	button, input {
+		font: inherit;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance:none;
+	}
+
 	ul {
 		list-style: none;
 		padding: 0;
