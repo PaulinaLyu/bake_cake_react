@@ -14,7 +14,8 @@ const SectionMenu = styled.section`
 	padding: 30px;
 `;
 
-export const Menu = ({ setOpenItem }) => (
+export const Menu = ( setOpenItem ) => {
+	{console.log({setOpenItem})}
 	<MenuStyled>
 		<Banner />
 		<Container>
@@ -35,4 +36,4 @@ export const Menu = ({ setOpenItem }) => (
 		</SectionMenu>
 		</Container>
 	</MenuStyled>
-);
+};
