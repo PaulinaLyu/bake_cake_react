@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import dbMenu from '../DBMenu';
 import { ListItem } from './ListItem';
 import { Banner } from './Banner';
+import { Container } from '../Style/GlobalStyle';
 
 const MenuStyled = styled.main`
 	margin-top: 80px;
 	background-color: #D2DBDD;
-	margin-left: 380px;
 `;
 
 const SectionMenu = styled.section`
@@ -17,6 +17,7 @@ const SectionMenu = styled.section`
 export const Menu = ({ setOpenItem }) => (
 	<MenuStyled>
 		<Banner />
+		<Container>
 		<SectionMenu>
 			<h2>Bakery products</h2>
 			<ListItem
@@ -32,5 +33,6 @@ export const Menu = ({ setOpenItem }) => (
 				setOpenItem={setOpenItem}
 			/>
 		</SectionMenu>
+		</Container>
 	</MenuStyled>
 );

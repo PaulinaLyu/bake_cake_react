@@ -15,7 +15,7 @@ const Item = styled.article`
 	margin-bottom: 35px;
  	transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
  	background-color: #fff;
-	width: 33.3%;
+	width: 30%;
 	max-width: 500px;
  	position: relative;
  	overflow: hidden;

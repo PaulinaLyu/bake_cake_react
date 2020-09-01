@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavBar } from './components/NavBar/NavBar';
+import { Header } from './components/Header/Header';
 import { Menu } from './components/Menu/Menu';
 import { GlobalStyle } from './components/Style/GlobalStyle';
 import { ModalItem } from './components/Modal/ModalItem';
@@ -16,10 +16,10 @@ function App() {
  	return (
 		<>
 			<GlobalStyle />
-			<NavBar />
-			<Order {...orders} />
-			<Menu {...openItem} />
-			{ openItem.openItem && <ModalItem {...openItem} {...orders} />}
+				<Order {...orders} />
+				<Header />
+				<Menu {...openItem} />
+				{ openItem.openItem && <ModalItem {...openItem} {...orders} />}
 		</>
   	);
 }

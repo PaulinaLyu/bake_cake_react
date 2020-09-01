@@ -7,7 +7,7 @@ export const Button = styled.button`
 	margin: 0 auto;
 	background-color: #FEEED7;
 	color: black;
-	border-color: transparent;
+	border: 2px solid transparent;
 	cursor: pointer;
 	padding: 10px;
 	font-size: 20px;
@@ -16,8 +16,6 @@ export const Button = styled.button`
 	transition-duration: .3s;
 		:hover {
 			background-color: #fff;
-			border: 30;
-			border-color: #FEEED7;
-			border-style: solid;
+			border: 2px solid #FEEED7;
 		}
 `;

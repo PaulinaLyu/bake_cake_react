@@ -4,23 +4,42 @@ import { Button } from '../Essentials/Button';
 import { OrderListItem } from './OrderListItem';
 import { totalPriceItems } from '../Functions/secondaryFunction';
 import { formatCurrency } from '../Functions/secondaryFunction';
+import { Container } from '../Style/GlobalStyle';
 
 const OrderStyled = styled.section`
 	position: fixed;
 	top: 80px;
-	left: 0;
-	display: flex;
-	flex-direction: column;
+	left: -320px;
+	z-index: 100;
+	padding-right: 50px;
 	background: #fff;
 	min-width: 380px;
 	height: calc(100% - 80px);
 	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.25);
-	padding: 20px;
+	transition: all 0.3s;
+
+	&:hover, &:focus{
+		transform: translate3d(320px, 0, 0);
+		animation-timing-function: 1s ease-in;
+	}
+`;
+
+const OrderInner= styled.div`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
 `;
 
 const OrderTitle= styled.h2`
-	text-align:  center;
-	margin-bottom: 30px;
+	position: absolute;
+	top:50%;
+	right: -40px;
+	transform: rotate(270deg);
+	font-weight: 800;
 `;
 
 const OrderContent= styled.div`
@@ -55,19 +74,23 @@ export const Order = ({ orders }) => {
 	return (
 		<OrderStyled>
 			<OrderTitle>Your order</OrderTitle>
-			<OrderContent>
-			{orders.length ?
-			<OrderList>
-				{orders.map(order => <OrderListItem order= {order} />)}
-			</OrderList> :
-			<EmptyList>The order list is empty</EmptyList>}
-			</OrderContent>
-			<Total>
-				<span>Total</span>
-				<span>5</span>
-				<TotalPrice>{formatCurrency(total)}</TotalPrice>
-			</Total>
-			<Button>Сheckout</Button>
+				<Container>
+					<OrderInner>
+						<OrderContent>
+						{orders.length ?
+						<OrderList>
+							{orders.map(order => <OrderListItem order= {order} />)}
+						</OrderList> :
+						<EmptyList>The order list is empty</EmptyList>}
+						</OrderContent>
+						<Total>
+							<span>Total</span>
+							<span>5</span>
+							<TotalPrice>{formatCurrency(total)}</TotalPrice>
+						</Total>
+						<Button>Сheckout</Button>
+					</OrderInner>
+				</Container>
 		</OrderStyled>
 	)
 }

@@ -4,6 +4,7 @@ import { Button } from '../Essentials/Button';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
 import { formatCurrency } from '../Functions/secondaryFunction';
+import { Container } from '../Style/GlobalStyle';
 
 const Overlay = styled.div`
 	position: fixed;
@@ -32,7 +33,7 @@ const Banner = styled.div`
 	background-position: center;
 `;
 
-const ModalContent = styled.section`
+const ModalInner = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -40,15 +41,24 @@ const ModalContent = styled.section`
 	padding: 30px;
 `;
 
+const ModalInfo = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+
+const ModalCount = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+
 const ModalPrice = styled.div`
 	font-weight: 600;
  	color: #AD7D52;
 `;
 
-const ModalInfo = styled.div`
-	display: flex;
-	justify-content: space-between;
-`;
+
+const ModalTitle = styled.h2``;
+
 
 const TotalPriceItem = styled.div`
 	display: flex;
@@ -81,18 +91,23 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 		<Overlay id="overlay" onClick={closeModal}>
 			<Modal>
 				<Banner img={openItem.img} />
-				<ModalContent>
-					<ModalInfo>	
-						{openItem.name}				
-						<ModalPrice>{formatCurrency(openItem.price)}</ModalPrice>
-					</ModalInfo>
-					<CountItem {...counter}/>
-					<TotalPriceItem>
-						<span>Price:</span>
-						<span>{formatCurrency(totalPriceItems(order))}</span>
-					</TotalPriceItem>
-					<Button onClick={addToOrder}>Add to basket</Button>
-				</ModalContent>
+				<Container>
+					<ModalInner>
+						<ModalInfo>	
+							<ModalTitle>{openItem.name}</ModalTitle>			
+							<ModalPrice>{formatCurrency(openItem.price)}</ModalPrice>
+						</ModalInfo>
+						<ModalCount>
+							<CountItem {...counter}/>
+							<TotalPriceItem>
+								<span>Price:</span>
+								<span>{formatCurrency(totalPriceItems(order))}</span>
+							</TotalPriceItem>
+						</ModalCount>
+						<Button onClick={addToOrder}>Add to basket</Button>
+					</ModalInner>
+				</Container>
+
 			</Modal>
 		</Overlay>
 	)

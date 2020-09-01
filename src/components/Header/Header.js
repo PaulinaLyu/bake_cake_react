@@ -2,20 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import logoImg from '../../img/logo.svg';
 import buttonIcon from '../../img/buttonicon.svg';
+import { Container } from '../Style/GlobalStyle';
 
-const NavBarStyled = styled.header`
+const HeaderStyled = styled.header`
     position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
     height: 80px;
     width: 100%;
+    padding: 15px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FEEED7;
+`;
+
+const HeaderInner = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #FEEED7;
 `;
 
 const Logo = styled.div`
@@ -94,21 +98,25 @@ const ButtonHeaderIcon = styled.img`
 
 `;
 
-export const NavBar = () => (
-    <NavBarStyled>
-        <Logo>
-            <ImgLogo src={logoImg} alt='logo'/>
-            <H1>Bake<LogoSpan>Cake</LogoSpan></H1>
-        </Logo>
-        <ButtonHeader>
-            <ButtonHeaderSecondary>
-                <ButtonHeaderSecondaryContent>
-                    Login
-                </ButtonHeaderSecondaryContent>
-            </ButtonHeaderSecondary>
-            <ButtonHeaderPrimary>
-                <ButtonHeaderIcon src={buttonIcon} alt='icon'/>
-            </ButtonHeaderPrimary>
-        </ButtonHeader>
-    </NavBarStyled>
+export const Header = () => (
+    <HeaderStyled>
+        <Container>
+            <HeaderInner>
+                <Logo>
+                    <ImgLogo src={logoImg} alt='logo'/>
+                    <H1>Bake<LogoSpan>Cake</LogoSpan></H1>
+                </Logo>
+                <ButtonHeader>
+                    <ButtonHeaderSecondary>
+                        <ButtonHeaderSecondaryContent>
+                            Login
+                        </ButtonHeaderSecondaryContent>
+                    </ButtonHeaderSecondary>
+                    <ButtonHeaderPrimary>
+                        <ButtonHeaderIcon src={buttonIcon} alt='icon'/>
+                    </ButtonHeaderPrimary>
+                </ButtonHeader>
+            </HeaderInner>
+        </Container>
+    </HeaderStyled>
 );
