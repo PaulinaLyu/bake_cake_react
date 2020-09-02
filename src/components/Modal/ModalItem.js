@@ -4,6 +4,7 @@ import { Button } from '../Essentials/Button';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
 import { formatCurrency } from '../Functions/secondaryFunction';
+import { totalPriceItems } from '../Functions/secondaryFunction';
 import { Container } from '../Style/GlobalStyle';
 import { Toppings } from './Toppings';
 import { useToppings } from '../Hooks/useToppings';
@@ -66,12 +67,10 @@ const TotalPriceItem = styled.div`
 	justify-content: space-between;
 `;
 
-export const totalPriceItems = order => order.price * order.count;
-
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
 	const counter = useCount();
-	const toppings = useToppings(openItem)
+	const toppings = useToppings(openItem);
 
 	const closeModal = e => {
 		if (e.target.id === 'overlay') {

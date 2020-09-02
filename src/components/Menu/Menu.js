@@ -14,26 +14,26 @@ const SectionMenu = styled.section`
 	padding: 30px;
 `;
 
-export const Menu = ( setOpenItem ) => {
-	{console.log({setOpenItem})}
+export const Menu = ({ setOpenItem }) => (
 	<MenuStyled>
 		<Banner />
 		<Container>
-		<SectionMenu>
-			<h2>Bakery products</h2>
-			<ListItem
-				itemList={dbMenu.burger}
-				setOpenItem={setOpenItem}
-			/>
-		</SectionMenu>
+			<SectionMenu>
+				<h2>Bakery products</h2>
+				<ListItem
+					itemList={dbMenu.burger}
+					setOpenItem={setOpenItem}
+				/>
+			</SectionMenu>
 
-		<SectionMenu>
-			<h2>Snacks & drinks</h2>
-			<ListItem
-				itemList={dbMenu.other}
-				setOpenItem={setOpenItem}
-			/>
-		</SectionMenu>
+			<SectionMenu>
+				<h2>Snacks & drinks</h2>
+				<ListItem
+					itemList={dbMenu.other}
+					setOpenItem={setOpenItem}
+				/>
+			</SectionMenu>
 		</Container>
 	</MenuStyled>
-};
+);
+
