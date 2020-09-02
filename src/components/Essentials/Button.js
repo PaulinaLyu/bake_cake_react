@@ -18,4 +18,9 @@ export const Button = styled.button`
 			background-color: #fff;
 			border: 2px solid #FEEED7;
 		}
+
+		:disabled {
+			background-color: #ccc;
+			border: 0;
+		}
 `;
