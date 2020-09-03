@@ -16,7 +16,7 @@ function App() {
  	return (
 		<>
 			<GlobalStyle />
-				<Order {...orders} />
+				<Order {...orders} {...openItem} />
 				<Header />
 				<Menu {...openItem} />
 				{ openItem.openItem && <ModalItem {...openItem} {...orders} />}

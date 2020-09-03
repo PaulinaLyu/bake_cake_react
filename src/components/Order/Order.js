@@ -66,14 +66,14 @@ const EmptyList= styled.p`
 	text-align: center;
 `;
 
-export const Order = ({ orders, setOrders }) => {
-	
-	const total = orders.reduce((result, order)=>totalPriceItems(order)+ result, 0);
-	const totalCounter = orders.reduce((result, order)=>order.count + result, 0);
+export const Order = ({ orders, setOrders, setOpenItem }) => {
 
 	const deleteItem = index => {
-		setOrders([...orders].filter((order,i) => index !== i));	
+		setOrders([...orders].filter((item,i) => index !== i));	
 	}
+
+	const total = orders.reduce((result, order)=>totalPriceItems(order)+ result, 0);
+	const totalCounter = orders.reduce((result, order)=>order.count + result, 0);
 
 	return (
 		<OrderStyled>
@@ -88,6 +88,7 @@ export const Order = ({ orders, setOrders }) => {
 								order={order} 
 								deleteItem={deleteItem}
 								index={index}
+								setOpenItem={setOpenItem}
 							/>)}
 						</OrderList> :
 						<EmptyList>The order list is empty</EmptyList>}

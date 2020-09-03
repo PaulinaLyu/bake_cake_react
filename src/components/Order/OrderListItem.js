@@ -4,17 +4,24 @@ import trashIcon from '../../img/trash.svg';
 import { totalPriceItems } from '../Functions/secondaryFunction';
 import { formatCurrency } from '../Functions/secondaryFunction';
 
-const OrderItemStyled = styled.li`
+const OrderItemStyled = styled.div`
 	display: flex;
-	flex-wrap: wrap;
 	margin: 15px 0;
+	cursor: pointer;
 `;
 
-const ItemName = styled.li`
+const ItemInfo = styled.div`
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+`;
+
+const ItemName = styled.div`
 	flex-grow: 1;
 `;
 
-const ItemPrice = styled.li`
+const ItemPrice = styled.div`
 	margin-left: 20px;
 	margin-right: 10px;
 	min-width: 65px;
@@ -39,16 +46,28 @@ const Toppings = styled.div`
 	font-size: 14px;
 `;
 
-export const OrderListItem = ({ order, index, deleteItem }) => {
+const Choice = styled.span`
+	margin-left: 10px;
+	font-size: 16px;
+	color: #9a9a9a;
+`;
+
+export const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
 	const topping = order.topping.filter(item => item.checked)
 		.map(item => item.name)
 		.join(', ');
+		
 	return (
 		<OrderItemStyled>
-			<ItemName>{order.name} {order.choice}</ItemName>
-			<span>{order.count}</span>
-			<ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
+			<ItemInfo onClick={() => setOpenItem({...order, index})}>
+				<ItemName>
+					{order.name} 
+					<Choice>{order.choice}</Choice>
+				</ItemName>
+				<span>{order.count}</span>
+				<ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
+				{topping && <Toppings>{topping}</Toppings>}
+			</ItemInfo>
 			<TrashButton onClick={() => deleteItem(index)} />
-			{topping && <Toppings>{topping}</Toppings>}
 		</OrderItemStyled>
 )} ;

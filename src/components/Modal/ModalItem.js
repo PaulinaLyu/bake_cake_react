@@ -63,7 +63,6 @@ const ModalPrice = styled.div`
 
 const ModalTitle = styled.h2``;
 
-
 const TotalPriceItem = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -71,10 +70,10 @@ const TotalPriceItem = styled.div`
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
-	const counter = useCount();
+	const counter = useCount(openItem);
 	const toppings = useToppings(openItem);
-	const choices = useChoices(openItem);
-
+	const choices = useChoices();
+	const isEdit = openItem.index > -1;
 
 	const closeModal = e => {
 		if (e.target.id === 'overlay') {
@@ -88,6 +87,13 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 		topping: toppings.toppings,
 		choice: choices.choice
 	};
+
+	const editOrder = () => {
+		const newOrders = [...orders];
+		newOrders[openItem.index] = order;
+		setOrders(newOrders);
+		setOpenItem(null);
+	}
 
 	const addToOrder = () => {
 		setOrders([...orders, order])
@@ -113,14 +119,12 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 						</ModalCount>
 						{openItem.toppings && <Toppings {...toppings} />}
 						{openItem.choices && <Choices {...choices} openItem={openItem} />}
-						<Button onClick={addToOrder}
+						<Button onClick={isEdit ? editOrder : addToOrder}
 								disabled={order.choices && !order.choice}
-								>Add to basket</Button>
+								>{isEdit ? "Make changes" : "Add to basket"}</Button>
 					</ModalInner>
 				</Container>
-
 			</Modal>
 		</Overlay>
 	)
 };
-

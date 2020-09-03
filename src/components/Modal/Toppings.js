@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { ExtraWrap, ExtraLabel, ExtraInput } from './Extra';
 
 const ToppingWrap = styled(ExtraWrap)``;
-
 const ToppingLabel = styled(ExtraLabel)``;
-
 const ToppingCheckbox = styled(ExtraInput)``;
 
 export function Toppings({ toppings, checkToppings }) {

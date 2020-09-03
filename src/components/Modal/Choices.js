@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { ExtraWrap, ExtraLabel, ExtraInput } from './Extra';
 
 const ChoiceWrap = styled(ExtraWrap)``;
-
 const ChoiceLabel = styled(ExtraLabel)``;
-
 const ChoiceRadio= styled(ExtraInput)``;
 
 export function Choices({ openItem, choice, changeChoices }) {
