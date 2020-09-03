@@ -1,21 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ExtraWrap, ExtraLabel, ExtraInput } from './Extra';
 
-const ToppingWrap = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-`;
+const ToppingWrap = styled(ExtraWrap)``;
 
-const ToppingLabel = styled.label`
-    cursor: pointer;
-    display: inline-block;
-    margin-right: 10px;
-`;
+const ToppingLabel = styled(ExtraLabel)``;
 
-const ToppingCheckbox = styled.input`
-    margin-right: 5px;
-`;
+const ToppingCheckbox = styled(ExtraInput)``;
 
 export function Toppings({ toppings, checkToppings }) {
     return (

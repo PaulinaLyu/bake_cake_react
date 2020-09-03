@@ -1,21 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ExtraWrap, ExtraLabel, ExtraInput } from './Extra';
 
-const ChoiceWrap = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-`;
+const ChoiceWrap = styled(ExtraWrap)``;
 
-const ChoiceRadio = styled.input`
-	cursor: pointer;
-	display: inline-block;
-	margin-right: 10px;
-`;
+const ChoiceLabel = styled(ExtraLabel)``;
 
-const ChoiceLabel = styled.label`
-	margin-right: 5px;
-`;
+const ChoiceRadio= styled(ExtraInput)``;
 
 export function Choices({ openItem, choice, changeChoices }) {
     return (
