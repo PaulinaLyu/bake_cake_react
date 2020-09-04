@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ExtraWrap, ExtraLabel, ExtraInput } from './Extra';
+import { ExtraContent, ExtraLabel, ExtraInput } from './Extra';
 
-const ToppingWrap = styled(ExtraWrap)``;
+const ToppingWrap = styled(ExtraContent)``;
 const ToppingLabel = styled(ExtraLabel)``;
 const ToppingCheckbox = styled(ExtraInput)``;
 

@@ -94,7 +94,7 @@ export const ListItem = ({ itemList, setOpenItem }) => (
 				<ItemImg img={item.img} />
 				<ItemImgHover img={item.img} />
 				<ItemInfo>
-					<ItemCategory>Cake</ItemCategory>
+					<ItemCategory>{item.categories}</ItemCategory>
 					<ItemTitle>{item.name}</ItemTitle>
 					<ItemPrice>{formatCurrency(item.price)}</ItemPrice>
 				</ItemInfo>

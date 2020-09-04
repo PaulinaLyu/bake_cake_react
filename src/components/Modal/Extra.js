@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ExtraWrap = styled.div`
+export const ExtraContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

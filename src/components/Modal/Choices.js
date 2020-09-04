@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ExtraWrap, ExtraLabel, ExtraInput } from './Extra';
+import { ExtraContent, ExtraLabel, ExtraInput } from './Extra';
 
-const ChoiceWrap = styled(ExtraWrap)``;
+const ChoiceWrap = styled(ExtraContent)``;
 const ChoiceLabel = styled(ExtraLabel)``;
 const ChoiceRadio= styled(ExtraInput)``;
 

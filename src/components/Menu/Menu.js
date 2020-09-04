@@ -19,21 +19,33 @@ export const Menu = ({ setOpenItem }) => (
 		<Banner />
 		<Container>
 			<SectionMenu>
-				<h2>Bakery products</h2>
+				<h2>Cake</h2>
 				<ListItem
-					itemList={dbMenu.burger}
+					itemList={dbMenu.cake}
 					setOpenItem={setOpenItem}
 				/>
 			</SectionMenu>
-
 			<SectionMenu>
-				<h2>Snacks & drinks</h2>
+				<h2>Cupcake</h2>
+				<ListItem
+					itemList={dbMenu.cupcake}
+					setOpenItem={setOpenItem}
+				/>
+			</SectionMenu>
+			<SectionMenu>
+				<h2>Bakery products</h2>
 				<ListItem
 					itemList={dbMenu.other}
+					setOpenItem={setOpenItem}
+				/>
+			</SectionMenu>
+			<SectionMenu>
+				<h2>Drinks</h2>
+				<ListItem
+					itemList={dbMenu.drinks}
 					setOpenItem={setOpenItem}
 				/>
 			</SectionMenu>
 		</Container>
 	</MenuStyled>
 );
-
