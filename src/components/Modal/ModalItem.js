@@ -49,6 +49,7 @@ const ModalInner = styled.section`
 const ModalInfo = styled.div`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 `;
 
 const ModalCount = styled.div`
@@ -57,8 +58,9 @@ const ModalCount = styled.div`
 `;
 
 const ModalPrice = styled.div`
+	font-size: 24px;
 	font-weight: 600;
- 	color: #AD7D52;
+	color: #AD7D52;
 `;
 
 const ModalTitle = styled.h2``;
@@ -121,7 +123,7 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 						{openItem.choices && <Choices {...choices} openItem={openItem} />}
 						<Button onClick={isEdit ? editOrder : addToOrder}
 								disabled={order.choices && !order.choice}
-								>{isEdit ? "Make changes" : "Add to basket"}</Button>
+								>{isEdit ? "Make changes" : "Add to cart"}</Button>
 					</ModalInner>
 				</Container>
 			</Modal>

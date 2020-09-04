@@ -13,9 +13,10 @@ export const GlobalStyle = createGlobalStyle`
 
 	body {
 		margin: 0;
-		font-family: 'Raleway', sans-serif;
-		font-size: 20px;
+		font-family: 'Lato', sans-serif;
+		font-size: 15px;
 		font-weight: 400;
+		letter-spacing: .5px;
 		color: black;
 	  }
 	  
@@ -25,15 +26,28 @@ export const GlobalStyle = createGlobalStyle`
 	}
 	
 	a {
-		text0decoration: none;
+		text-decoration: none;
 		color: inherit;
 	}
 
 	h1,h2,h3,h4 {
 		padding: 0;
 		margin: 0;
-		font-family: 'Lato', sans-serif;
+		font-family: 'Raleway', sans-serif;
 		font-weight: 700;
+	}
+
+	h1 {
+		font-size: 50px;
+		letter-spacing: 6px;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+
+	h3 {
+		font-size: 20px;
 	}
 
 	p {

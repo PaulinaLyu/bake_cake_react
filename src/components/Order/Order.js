@@ -6,7 +6,7 @@ import { totalPriceItems } from '../Functions/secondaryFunction';
 import { formatCurrency } from '../Functions/secondaryFunction';
 import { Container } from '../Style/GlobalStyle';
 
-const OrderStyled = styled.section`
+const OrderStyled= styled.section`
 	position: fixed;
 	top: 80px;
 	left: -320px;

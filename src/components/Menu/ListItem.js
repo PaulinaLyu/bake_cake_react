@@ -51,7 +51,7 @@ const ItemImgHover = styled.div`
 
 	${Item}:hover & {
 	height: 100%;
-	opacity: 0.3;
+	opacity: 0.5;
 	}
 `;
 
@@ -75,12 +75,13 @@ const ItemCategory = styled.div`
  	color: #868686;
 `;
 
-const ItemTitle = styled.div`
+const ItemTitle = styled.h3`
 	margin-top: 5px;
 	margin-bottom: 10px;
 `;
 
 const ItemPrice = styled.div`
+   	font-size: 20px;
 	font-weight: 600;
  	color: #AD7D52;
 `;

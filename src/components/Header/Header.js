@@ -25,9 +25,10 @@ const HeaderInner = styled.div`
 const Logo = styled.div`
     display: flex;
     align-items: center;
+    letter-spacing: normal;
 `;
 
-const H1 = styled.h1`
+const LogoDiv = styled.div`
     font-size: 24px;
     margin-left: 15px;
 `;
@@ -104,7 +105,7 @@ export const Header = () => (
             <HeaderInner>
                 <Logo>
                     <ImgLogo src={logoImg} alt='logo'/>
-                    <H1>Bake<LogoSpan>Cake</LogoSpan></H1>
+                    <LogoDiv>Bake<LogoSpan>Cake</LogoSpan></LogoDiv>
                 </Logo>
                 <ButtonHeader>
                     <ButtonHeaderSecondary>
