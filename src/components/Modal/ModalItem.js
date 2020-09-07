@@ -26,7 +26,6 @@ const Overlay = styled.div`
 
 const Modal = styled.div`
 	width: 600px;
-	height: 600px;
 	background-color: #fff;
 `;
 
@@ -46,15 +45,25 @@ const ModalInner = styled.section`
 	padding: 30px;
 `;
 
+const ModalTitle = styled.h2``;
 const ModalInfo = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 `;
 
+const ModalDescription = styled.p`
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-family: 'Raleway', sans-serif;
+`;
+
 const ModalCount = styled.div`
 	display: flex;
 	justify-content: space-between;
+	align-item: center;
+	margin-top: 15px;
+	margin-bottom: 27px;
 `;
 
 const ModalPrice = styled.div`
@@ -63,11 +72,18 @@ const ModalPrice = styled.div`
 	color: #AD7D52;
 `;
 
-const ModalTitle = styled.h2``;
-
 const TotalPriceItem = styled.div`
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+`;
+
+const TotalPriceItemTitle = styled.h4`
+	font-size: 20px;
+	margin-right: 10px;
+`;
+
+const TotalPriceItemValue = styled.div`
+	font-size: 22px;
 `;
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
@@ -112,11 +128,12 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 							<ModalTitle>{openItem.name}</ModalTitle>			
 							<ModalPrice>{formatCurrency(openItem.price)}</ModalPrice>
 						</ModalInfo>
+						<ModalDescription>{openItem.description}</ModalDescription>
 						<ModalCount>
 							<CountItem {...counter}/>
 							<TotalPriceItem>
-								<span>Price:</span>
-								<span>{formatCurrency(totalPriceItems(order))}</span>
+								<TotalPriceItemTitle>Price:</TotalPriceItemTitle>
+								<TotalPriceItemValue>{formatCurrency(totalPriceItems(order))}</TotalPriceItemValue>
 							</TotalPriceItem>
 						</ModalCount>
 						{openItem.toppings && <Toppings {...toppings} />}

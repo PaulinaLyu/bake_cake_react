@@ -39,6 +39,7 @@ const OrderTitle= styled.h2`
 	top:50%;
 	right: -40px;
 	transform: rotate(270deg);
+	font-size: 28px;
 	font-weight: 800;
 `;
 
@@ -50,6 +51,8 @@ const OrderList= styled.ul``;
 
 const Total= styled.div`
 	display: flex;
+	justify-content: space-between;
+	align-item: center;
 	margin: 0 35px 30px;
 	& span:first-child {
 		flex-grow: 1;
@@ -64,6 +67,9 @@ const TotalPrice= styled.div`
 
 const EmptyList= styled.p`
 	text-align: center;
+`;
+
+const TotalTitle= styled.h3`
 `;
 
 export const Order = ({ orders, setOrders, setOpenItem }) => {
@@ -94,7 +100,7 @@ export const Order = ({ orders, setOrders, setOpenItem }) => {
 						<EmptyList>The order list is empty</EmptyList>}
 						</OrderContent>
 						<Total>
-							<span>Total</span>
+							<TotalTitle>Total</TotalTitle>
 							<span>{totalCounter}</span>
 							<TotalPrice>{formatCurrency(total)}</TotalPrice>
 						</Total>

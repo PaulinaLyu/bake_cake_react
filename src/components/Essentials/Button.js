@@ -7,20 +7,18 @@ export const Button = styled.button`
 	margin: 0 auto;
 	background-color: #FEEED7;
 	color: black;
-	border: 2px solid transparent;
+	border: 0;
 	cursor: pointer;
 	padding: 10px;
 	font-size: 20px;
 	font-family: 'Lato', sans-serif;
 	transition-property: color, background-color, border-color;
-	transition-duration: .3s;
+	transition-duration: .6s;
 		:hover {
-			background-color: #fff;
-			border: 2px solid #FEEED7;
+			background-color: #FFDDAB;
 		}
 
 		:disabled {
 			background-color: #ccc;
-			border: 0;
 		}
 `;

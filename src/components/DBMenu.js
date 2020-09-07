@@ -7,6 +7,7 @@ const dbMenu = {
 			price: 11,
 			toppings: ['Cream', 'Jam', 'Chocolate', 'Caramel', 'Biscuits', 'Vanilla', 'Coconut', 'Grape'],
 			categories: 'Cake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Blackberry cake',
@@ -15,6 +16,7 @@ const dbMenu = {
 			price: 9,
 			toppings: ['Cream', 'Jam', 'Biscuits', 'Coconut'],
 			categories: 'Cake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Chocolate cake',
@@ -23,6 +25,7 @@ const dbMenu = {
 			price: 6,
 			toppings: ['Strawberry', 'Cherry', 'Grape', 'Raspberry'],
 			categories: 'Cake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Fig cake',
@@ -30,6 +33,7 @@ const dbMenu = {
 			id: 4,
 			price: 20,
 			categories: 'Cake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Raspberry cake',
@@ -38,6 +42,7 @@ const dbMenu = {
 			price: 15,
 			toppings: ['Cream', 'Caramel', 'Chocolate', 'Coconut'],
 			categories: 'Cake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Strawberry cake',
@@ -46,6 +51,7 @@ const dbMenu = {
 			price: 25,
 			toppings: ['Cream', 'Jam', 'Biscuits', 'Coconut'],
 			categories: 'Cake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 	],
 	cupcake: [
@@ -56,6 +62,7 @@ const dbMenu = {
 			price: 3,
 			toppings: ['Bonbon', 'Jam', 'Biscuits', 'Coconut'],
 			categories: 'Cupcake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Macaroon cupcake',
@@ -63,6 +70,7 @@ const dbMenu = {
 			id: 2,
 			price: 5,
 			categories: 'Cupcake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Mint cupcake',
@@ -71,6 +79,7 @@ const dbMenu = {
 			price: 2,
 			toppings: ['Bonbon', 'Jam', 'Biscuits', 'Coconut'],
 			categories: 'Cupcake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Ninja cupcake',
@@ -78,6 +87,7 @@ const dbMenu = {
 			id: 4,
 			price: 5,
 			categories: 'Cupcake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Pig cupcake',
@@ -85,6 +95,7 @@ const dbMenu = {
 			id: 5,
 			price: 3,
 			categories: 'Cupcake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Rainbow cupcake',
@@ -93,6 +104,7 @@ const dbMenu = {
 			price: 3,
 			toppings: ['Bonbon', 'Jam', 'Biscuits', 'Coconut'],
 			categories: 'Cupcake',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 	],
 	other: [
@@ -103,6 +115,7 @@ const dbMenu = {
 			price: 1,
 			choices: ['Jam', 'Chocolate', 'Caramel', 'Vanilla'],
 			categories: 'Bakery products',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Donuts',
@@ -111,6 +124,7 @@ const dbMenu = {
 			price: 2,
 			choices: ['Jam', 'Chocolate', 'Caramel', 'Vanilla'],
 			categories: 'Bakery products',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Macaroons',
@@ -119,6 +133,7 @@ const dbMenu = {
 			price: 15,
 			choices: ['Banana', 'Strawberry', 'Сherry', 'Mint'],
 			categories: 'Bakery products',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Tarts',
@@ -127,6 +142,7 @@ const dbMenu = {
 			price: 3,
 			choices: ['Berry', 'Jam', 'Grape', 'Strawberry'],
 			categories: 'Bakery products',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 	],
 	drinks: [
@@ -137,6 +153,7 @@ const dbMenu = {
 			price: 1,
 			choices: ['Coca-cola', 'Fanta', 'Mirinda', 'Sprite'],
 			categories: 'Drinks',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Tea',
@@ -145,6 +162,7 @@ const dbMenu = {
 			price: 3,
 			choices: ['White', 'Green', 'Black', 'Herbs'],
 			categories: 'Drinks',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Smoothie',
@@ -153,6 +171,7 @@ const dbMenu = {
 			price: 4,
 			choices: ['Banana', 'Avocado', 'Сherry'],
 			categories: 'Drinks',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 		{
 			name: 'Coffee',
@@ -161,6 +180,7 @@ const dbMenu = {
 			price: 3,
 			choices: ['Espresso', 'Cappuccino', 'Latte', 'Macchiato'],
 			categories: 'Drinks',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
 		},
 	]
 };

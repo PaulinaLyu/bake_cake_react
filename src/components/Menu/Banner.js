@@ -8,7 +8,6 @@ const BannerStyled= styled.div`
 	background-image: ${`url(${BannerImg})`};
 	background-position: center;
 	background-size: cover;
-	margin-top: 80px;
 `;
 
 const BannerInner= styled.div`

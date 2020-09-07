@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ExtraContent, ExtraLabel, ExtraInput } from './Extra';
+import { ExtraContent, ExtraLabel, ExtraInput, ExtraTitle } from './Extra';
 
-const ToppingWrap = styled(ExtraContent)``;
+const ToppingTitle = styled(ExtraTitle)``;
+const ToppingContent = styled(ExtraContent)``;
 const ToppingLabel = styled(ExtraLabel)``;
 const ToppingCheckbox = styled(ExtraInput)``;
 
 export function Toppings({ toppings, checkToppings }) {
     return (
         <>
-            <h3>Toppings</h3>
-            <ToppingWrap>
+            <ToppingTitle>Toppings</ToppingTitle>
+            <ToppingContent>
                 {toppings.map((item, i) => (
                     <ToppingLabel key={i}>
                         <ToppingCheckbox
@@ -21,7 +22,7 @@ export function Toppings({ toppings, checkToppings }) {
                         {item.name}
                     </ToppingLabel>
                 ))}
-            </ToppingWrap>
+            </ToppingContent>
         </>
     )
 }

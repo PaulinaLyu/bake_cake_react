@@ -3,43 +3,43 @@ import styled from 'styled-components';
 
 const CountContent = styled.div`
     display: flex;
-    flex-direction: column;
+    align-items: center;
 `;
 
-const CountLabel = styled.label`
-    text-align: center;
-    width: 100%;
+const CountTitle = styled.h4`
+    font-size: 20px;
+    margin-right: 15px;
 `;
 
 const CountInput = styled.input`
-    padding: .5em 1em .5em;
-    font-size: 20px;
+    padding: 4px 2px 4px 2px;
+    font-size: 16px;
     background-color: #fff;
     color: #222;
     text-align: center;
-    border: 2px solid #FEEED7;
-
+    border: 3px solid #FEEED7;
 `;
 
 const ButtonCount = styled.button`
-    padding: .6em 1em .65em;
+    padding: 7px 7px 7px 7px;
     background-color: #FEEED7;
     border: 0;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 16px;
+    font-weight: 500;
     text-align: center;
     text-decoration: none;
     transition: background 0.4s ease;
 
         :hover {
-        background-color: #background: #444;
+        background-color: #FFDDAB;
     }
 `;
 
 export function CountItem({ count, setCount, onChange }) {
     return (
         <CountContent>
-            <CountLabel>Quantity</CountLabel>
+            <CountTitle>Quantity:</CountTitle>
             <div>
                 <ButtonCount disabled={count <= 1} onClick={() => setCount(count - 1)}>-</ButtonCount>
                 <CountInput type='number' min='1' max='100' value={count < 1 ? 1 : count} onChange={onChange} />
