@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Container } from '../Style/GlobalStyle';
 import { Button } from '../Essentials/Button';
 import { OrderListItem } from './OrderListItem';
 import { totalPriceItems } from '../Functions/secondaryFunction';
 import { formatCurrency } from '../Functions/secondaryFunction';
-import { Container } from '../Style/GlobalStyle';
+import { projection } from '../Functions/secondaryFunction';
 
 const OrderStyled= styled.section`
 	position: fixed;
@@ -72,7 +73,27 @@ const EmptyList= styled.p`
 const TotalTitle= styled.h3`
 `;
 
-export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn }) => {
+const rulesData = {
+    name: ['name'],
+    price: ['price'],
+    count: ['count'],
+	topping: ['topping', arr => arr.filter(obj => obj.checked).map(obj => obj.name),
+		arr => arr.length ? arr : 'no topping'],
+    choice: ['choice', item => item ? item : 'no choices'],
+}
+
+export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn, firebaseDatabase }) => {
+	const dataBase = firebaseDatabase();
+
+	const sendOrder = () => {
+		const newOrder = orders.map(projection(rulesData));
+		dataBase.ref('order').push().set({
+			nameCustomer: authentication.displayName,
+			email: authentication.email,
+			order: newOrder,
+		})
+		setOrders([]);
+	}
 
 	const deleteItem = index => {
 		setOrders([...orders].filter((item,i) => index !== i));	
@@ -104,9 +125,13 @@ export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn })
 							<span>{totalCounter}</span>
 							<TotalPrice>{formatCurrency(total)}</TotalPrice>
 						</Total>
-						{authentication ? 
-						<Button>Сheckout</Button> :
-						<Button onClick={logIn}>Сheckout</Button>}
+						<Button onClick={() => {
+							if (authentication) {
+								sendOrder();
+							} else {
+								logIn();
+							} 
+						}}>Сheckout</Button>
 					</OrderInner>
 				</Container>
 		</OrderStyled>

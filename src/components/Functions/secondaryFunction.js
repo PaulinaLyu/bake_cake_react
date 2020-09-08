@@ -5,3 +5,11 @@ export const totalPriceItems = order => {
 };
 
 export const formatCurrency = value => value.toLocaleString('en-IN', {style: 'currency', currency: 'EUR'});
+
+export const projection = rules => {
+    const keys = Object.keys(rules);
+    return obj => keys.reduce((newObj, key) => {
+        newObj[key] = rules[key].reduce((value, fn, index) => (index ? fn(value) : obj[fn]), null)
+        return newObj;
+    }, {})
+};
