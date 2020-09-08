@@ -72,7 +72,7 @@ const EmptyList= styled.p`
 const TotalTitle= styled.h3`
 `;
 
-export const Order = ({ orders, setOrders, setOpenItem }) => {
+export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn }) => {
 
 	const deleteItem = index => {
 		setOrders([...orders].filter((item,i) => index !== i));	
@@ -104,7 +104,9 @@ export const Order = ({ orders, setOrders, setOpenItem }) => {
 							<span>{totalCounter}</span>
 							<TotalPrice>{formatCurrency(total)}</TotalPrice>
 						</Total>
-						<Button>Сheckout</Button>
+						{authentication ? 
+						<Button>Сheckout</Button> :
+						<Button onClick={logIn}>Сheckout</Button>}
 					</OrderInner>
 				</Container>
 		</OrderStyled>

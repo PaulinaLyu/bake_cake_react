@@ -85,8 +85,7 @@ const ButtonHeaderPrimary = styled.div`
     border-radius: 20px;
     left: 0;
     top: 50%;
-    margin-top: -20px;
-    
+    margin-top: -20px; 
 `;
 
 const ButtonHeaderIcon = styled.img`
@@ -96,10 +95,11 @@ const ButtonHeaderIcon = styled.img`
     width: 40px;
     border-radius: 20px;
     padding: 20%;
-
 `;
 
-export const Header = () => (
+const LogOut = styled.div``;
+
+export const Header = ({ authentication, logIn, logOut }) => (
     <HeaderStyled>
         <Container>
             <HeaderInner>
@@ -107,16 +107,25 @@ export const Header = () => (
                     <ImgLogo src={logoImg} alt='logo'/>
                     <LogoDiv>Bake<LogoSpan>Cake</LogoSpan></LogoDiv>
                 </Logo>
-                <ButtonHeader>
+                {authentication ? 
+                <LogOut>
+                    <ButtonHeader onClick={logOut}>
+                        <ButtonHeaderSecondary>
+                            <ButtonHeaderSecondaryContent>Logout</ButtonHeaderSecondaryContent>
+                        </ButtonHeaderSecondary>
+                        <ButtonHeaderPrimary>
+                            <ButtonHeaderIcon src={authentication.photoURL} alt={authentication.displayName} style={{ padding: "0", background: "transparent"}} />
+                        </ButtonHeaderPrimary>    
+                    </ButtonHeader>
+                </LogOut> :
+                <ButtonHeader onClick={logIn}>
                     <ButtonHeaderSecondary>
-                        <ButtonHeaderSecondaryContent>
-                            Login
-                        </ButtonHeaderSecondaryContent>
+                        <ButtonHeaderSecondaryContent>Login</ButtonHeaderSecondaryContent>
                     </ButtonHeaderSecondary>
                     <ButtonHeaderPrimary>
                         <ButtonHeaderIcon src={buttonIcon} alt='icon'/>
                     </ButtonHeaderPrimary>
-                </ButtonHeader>
+                </ButtonHeader>}
             </HeaderInner>
         </Container>
     </HeaderStyled>
