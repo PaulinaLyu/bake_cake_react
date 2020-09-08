@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ListItem } from './ListItem';
 import { Banner } from './Banner';
+import { Loader } from '../Essentials/Loader';
 import { Container } from '../Style/GlobalStyle';
 import { useFetch } from '../Hooks/useFetch';
 
@@ -54,7 +55,7 @@ export const Menu = ({ setOpenItem }) => {
 				</SectionMenu>
 			</Container> : res.eror ?
 			<div>Sorry, we will fix it soon...</div> :
-			<div>Loading...</div>
+			<Loader/>
 			}
 		</MenuStyled>
 	);
