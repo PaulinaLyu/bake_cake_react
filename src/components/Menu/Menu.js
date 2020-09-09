@@ -4,7 +4,6 @@ import { ListItem } from './ListItem';
 import { Banner } from './Banner';
 import { Loader } from '../Essentials/Loader';
 import { Container } from '../Style/GlobalStyle';
-import { useFetch } from '../Hooks/useFetch';
 
 const MenuStyled = styled.main`
 	background-color: #D2DBDD;
@@ -14,15 +13,12 @@ const SectionMenu = styled.section`
 	padding: 30px 0 30px 0;
 `;
 
-export const Menu = ({ setOpenItem }) => {
-
-	const res = useFetch();
-	const dbMenu = res.response;
+export const Menu = ({ setOpenItem, dbMenu }) => {
 
 	return (
 		<MenuStyled>
 			<Banner />
-			{res.response ?
+			{dbMenu ?
 			<Container>
 				<SectionMenu>
 					<h2>Cake</h2>
@@ -52,8 +48,7 @@ export const Menu = ({ setOpenItem }) => {
 						setOpenItem={setOpenItem}
 					/>
 				</SectionMenu>
-			</Container> : res.eror ?
-			<div>Sorry, we will fix it soon...</div> :
+			</Container> :
 			<Loader/>
 			}
 		</MenuStyled>
