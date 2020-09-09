@@ -3,23 +3,22 @@ import styled from 'styled-components';
 import { formatCurrency } from '../Functions/secondaryFunction';
 
 const List = styled.div`
-	margin-top: 45px;
 	display: flex;
-	justify-content: start;
-	align-items: center;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
+	margin: 45px 0 0 -1.7rem;
 `;
 
 const Item = styled.article`
-	margin-right: 35px;
-	margin-bottom: 35px;
+	flex: 1 0 25%;
+	min-width: 200px;
+	max-width: 378px;
+	margin:0 0 1.7rem 1.7rem;
  	transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
  	background-color: #fff;
-	width: 30%;
-	max-width: 500px;
  	position: relative;
  	overflow: hidden;
- 	box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+	box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+	 
    
    	&:hover {
 		cursore: pointer;

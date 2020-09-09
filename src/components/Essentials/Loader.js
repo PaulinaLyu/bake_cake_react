@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import { keyFrameAnimation } from './KeyFrame';
+import { keyFrameAnimation } from '../Style/KeyFrame';
 
 export const LoaderItem = styled.div`
     display: inline-block;

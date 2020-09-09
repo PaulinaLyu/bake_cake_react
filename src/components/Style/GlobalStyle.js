@@ -47,7 +47,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	h3 {
-		font-size: 20px;
+		font-size: 18px;
 	}
 
 	p {
@@ -83,5 +83,6 @@ export const Container = styled.div`
 	height: 100%;
   	max-width: 1230px;
   	margin: 0 auto;
-  	padding: 0 20px;
+	padding: 0 20px;
+	background: "transparent"
 `;

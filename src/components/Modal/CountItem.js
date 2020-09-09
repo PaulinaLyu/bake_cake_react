@@ -12,12 +12,12 @@ const CountTitle = styled.h4`
 `;
 
 const CountInput = styled.input`
-    padding: 4px 2px 4px 2px;
+    padding: 5px 2px 5px 2px;
     font-size: 16px;
     background-color: #fff;
     color: #222;
     text-align: center;
-    border: 3px solid #FEEED7;
+    border: 2px solid #FEEED7;
 `;
 
 const ButtonCount = styled.button`

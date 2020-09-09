@@ -7,12 +7,15 @@ import { formatCurrency } from '../Functions/secondaryFunction';
 const OrderItemStyled = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	align-items: center;
 	margin: 15px 0;
 	cursor: pointer;
 `;
 
 const ItemName = styled.div`
 	flex-grow: 1;
+	font-size: 18px;
+	font-weight: 700;
 `;
 
 const ItemPrice = styled.div`
@@ -20,6 +23,7 @@ const ItemPrice = styled.div`
 	margin-right: 10px;
 	min-width: 65px;
 	text-align: right;
+	font-weight: 700;
 `;
 
 const TrashButton = styled.button `

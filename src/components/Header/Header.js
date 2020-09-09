@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import logoImg from '../../img/logo.svg';
 import buttonIcon from '../../img/buttonicon.svg';
 import { Container } from '../Style/GlobalStyle';
+import { Logo } from './Logo';
 
 const HeaderStyled = styled.header`
     position: fixed;
@@ -22,29 +22,10 @@ const HeaderInner = styled.div`
     align-items: center;
 `;
 
-const Logo = styled.div`
-    display: flex;
-    align-items: center;
-    letter-spacing: normal;
-`;
-
-const LogoDiv = styled.div`
-    font-size: 24px;
-    margin-left: 15px;
-`;
-const LogoSpan = styled.span`
-    font-weight: 900;
-    text-transform: uppercase;
-    color: white; 
-`;
-
-const ImgLogo = styled.img`
-    width: 50px;
-`;
-
 const ButtonHeader = styled.button`
     display: block;
     position: relative;
+    left: 75px;
     height: 40px;
     background-color: transparent;
     border: 0;
@@ -103,10 +84,7 @@ export const Header = ({ authentication, logIn, logOut }) => (
     <HeaderStyled>
         <Container>
             <HeaderInner>
-                <Logo>
-                    <ImgLogo src={logoImg} alt='logo'/>
-                    <LogoDiv>Bake<LogoSpan>Cake</LogoSpan></LogoDiv>
-                </Logo>
+                <Logo />
                 {authentication ? 
                 <LogOut>
                     <ButtonHeader onClick={logOut}>

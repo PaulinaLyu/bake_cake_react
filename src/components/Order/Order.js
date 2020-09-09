@@ -10,17 +10,19 @@ import { projection } from '../Functions/secondaryFunction';
 const OrderStyled= styled.section`
 	position: fixed;
 	top: 80px;
-	left: -320px;
+	left: -370px;
 	z-index: 100;
 	padding-right: 50px;
 	background: #fff;
-	min-width: 380px;
+	min-width: 420px;
+	max-width: 420px;
 	height: calc(100% - 80px);
 	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.25);
 	transition: all 0.3s;
+	background-color: #FEEED7;
 
 	&:hover, &:focus{
-		transform: translate3d(320px, 0, 0);
+		transform: translate3d(370px, 0, 0);
 		animation-timing-function: 1s ease-in;
 	}
 `;
@@ -32,13 +34,14 @@ const OrderInner= styled.div`
 	justify-content: space-between;
 	padding-top: 30px;
 	padding-bottom: 30px;
+	background-color: #fff;
 	
 `;
 
 const OrderTitle= styled.h2`
 	position: absolute;
 	top:50%;
-	right: -40px;
+	right: -46px;
 	transform: rotate(270deg);
 	font-size: 28px;
 	font-weight: 800;
@@ -53,8 +56,9 @@ const OrderList= styled.ul``;
 const Total= styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-item: center;
+	align-items: center;
 	margin: 0 35px 30px;
+	font-weight: 700;
 	& span:first-child {
 		flex-grow: 1;
 	}
@@ -105,7 +109,7 @@ export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn, f
 	return (
 		<OrderStyled>
 			<OrderTitle>Your order</OrderTitle>
-				<Container>
+				<Container style={{ background: "#fff"}}>
 					<OrderInner>
 						<OrderContent>
 						{orders.length ?

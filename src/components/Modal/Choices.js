@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ExtraContent, ExtraLabel, ExtraInput } from './Extra';
+import { ExtraContent, ExtraLabel, ExtraInput, ExtraTitle } from './Extra';
 
+const ChoiceTitle = styled(ExtraTitle)``;
 const ChoiceContent = styled(ExtraContent)``;
 const ChoiceLabel = styled(ExtraLabel)``;
 const ChoiceRadio= styled(ExtraInput)``;
@@ -9,7 +10,7 @@ const ChoiceRadio= styled(ExtraInput)``;
 export function Choices({ openItem, choice, changeChoices }) {
     return (
         <>
-            <h3>Сhoose:</h3>
+            <ChoiceTitle>Сhoose</ChoiceTitle>
 			<ChoiceContent>
                 {openItem.choices.map((item, i) => (
                     <ChoiceLabel key={i}>
