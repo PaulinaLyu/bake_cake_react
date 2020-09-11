@@ -1,28 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Essentials/Button';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
 import { formatCurrency } from '../Functions/secondaryFunction';
 import { totalPriceItems } from '../Functions/secondaryFunction';
-import { Container } from '../Style/GlobalStyle';
+import { Container } from '../Style/AdditionalStyles';
 import { Toppings } from './Toppings';
 import { Choices } from './Choices';
 import { useToppings } from '../Hooks/useToppings';
 import { useChoices } from '../Hooks/useChoices';
-
-const Overlay = styled.div`
-	position: fixed;
-	top: 0;
-	left:0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, .5);
-	z-index: 20;
-`;
+import { Context } from '../Functions/context';
+import { Overlay } from '../Style/AdditionalStyles';
 
 const Modal = styled.div`
 	width: 600px;
@@ -86,7 +75,9 @@ const TotalPriceItemValue = styled.div`
 	font-size: 22px;
 `;
 
-export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
+export const ModalItem = () => {
+	const { openItem: { openItem, setOpenItem },
+			orders: { orders, setOrders } } = useContext(Context);
 
 	const counter = useCount(openItem);
 	const toppings = useToppings(openItem);

@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 	html {
@@ -77,12 +77,3 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 	}
   `;
-
-export const Container = styled.div`
-	width: 100%;
-	height: 100%;
-  	max-width: 1230px;
-  	margin: 0 auto;
-	padding: 0 20px;
-	background: "transparent"
-`;

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Container } from '../Style/GlobalStyle';
+import { Container } from '../Style/AdditionalStyles';
 import { Button } from '../Essentials/Button';
+import { OrderTitle, Total, TotalPrice } from '../Style/AdditionalStyles';
 import { OrderListItem } from './OrderListItem';
 import { totalPriceItems } from '../Functions/secondaryFunction';
 import { formatCurrency } from '../Functions/secondaryFunction';
-import { projection } from '../Functions/secondaryFunction';
+import { Context } from '../Functions/context';
 
 const OrderStyled= styled.section`
 	position: fixed;
@@ -38,67 +39,26 @@ const OrderInner= styled.div`
 	
 `;
 
-const OrderTitle= styled.h2`
-	position: absolute;
-	top:50%;
-	right: -46px;
-	transform: rotate(270deg);
-	font-size: 28px;
-	font-weight: 800;
-`;
-
 const OrderContent= styled.div`
 	flex-grow: 1;
 `;
 
 const OrderList= styled.ul``;
 
-const Total= styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 0 35px 30px;
-	font-weight: 700;
-	& span:first-child {
-		flex-grow: 1;
-	}
-`;
-
-const TotalPrice= styled.div`
-	text-align: right;
-	min-width: 65px;
-	margin-left: 20px;
-`;
-
 const EmptyList= styled.p`
 	text-align: center;
+	font-size: 18px;
 `;
 
 const TotalTitle= styled.h3`
 `;
 
-const rulesData = {
-    name: ['name'],
-    price: ['price'],
-    count: ['count'],
-	topping: ['topping', arr => arr.filter(obj => obj.checked).map(obj => obj.name),
-		arr => arr.length ? arr : 'no topping'],
-    choice: ['choice', item => item ? item : 'no choices'],
-}
-
-export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn, firebaseDatabase }) => {
-	const dataBase = firebaseDatabase();
-
-	const sendOrder = () => {
-		const newOrder = orders.map(projection(rulesData));
-		dataBase.ref('order').push().set({
-			nameCustomer: authentication.displayName,
-			email: authentication.email,
-			order: newOrder,
-		})
-		setOrders([]);
-	}
-
+export const Order = () => {
+	const { openItem: { setOpenItem },
+			orders: { orders, setOrders },
+			auth: { authentication, logIn },
+			orderConfirm: { setOpenOrderConfirm } } = useContext(Context);
+	
 	const deleteItem = index => {
 		setOrders([...orders].filter((item,i) => index !== i));	
 	}
@@ -124,6 +84,8 @@ export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn, f
 						</OrderList> :
 						<EmptyList>The order list is empty</EmptyList>}
 						</OrderContent>
+						{orders.length &&
+						<>
 						<Total>
 							<TotalTitle>Total</TotalTitle>
 							<span>{totalCounter}</span>
@@ -131,11 +93,12 @@ export const Order = ({ orders, setOrders, setOpenItem, authentication, logIn, f
 						</Total>
 						<Button onClick={() => {
 							if (authentication) {
-								sendOrder();
+								setOpenOrderConfirm(true);
 							} else {
 								logIn();
 							} 
 						}}>Сheckout</Button>
+						</>}
 					</OrderInner>
 				</Container>
 		</OrderStyled>

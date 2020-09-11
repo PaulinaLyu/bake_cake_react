@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import buttonIcon from '../../img/buttonicon.svg';
-import { Container } from '../Style/GlobalStyle';
+import { Container } from '../Style/AdditionalStyles';
 import { Logo } from './Logo';
+import { Context } from '../Functions/context';
 
 const HeaderStyled = styled.header`
     position: fixed;
@@ -80,31 +81,35 @@ const ButtonHeaderIcon = styled.img`
 
 const LogOut = styled.div``;
 
-export const Header = ({ authentication, logIn, logOut }) => (
-    <HeaderStyled>
-        <Container>
-            <HeaderInner>
-                <Logo />
-                {authentication ? 
-                <LogOut>
-                    <ButtonHeader onClick={logOut}>
+export const Header = () => {
+    const { auth: { authentication, logIn, logOut } } = useContext(Context);
+
+    return (
+        <HeaderStyled>
+            <Container>
+                <HeaderInner>
+                    <Logo />
+                    {authentication ? 
+                    <LogOut>
+                        <ButtonHeader onClick={logOut}>
+                            <ButtonHeaderSecondary>
+                                <ButtonHeaderSecondaryContent>Logout</ButtonHeaderSecondaryContent>
+                            </ButtonHeaderSecondary>
+                            <ButtonHeaderPrimary>
+                                <ButtonHeaderIcon src={authentication.photoURL} alt={authentication.displayName} style={{ padding: "0", background: "transparent"}} />
+                            </ButtonHeaderPrimary>    
+                        </ButtonHeader>
+                    </LogOut> :
+                    <ButtonHeader onClick={logIn}>
                         <ButtonHeaderSecondary>
-                            <ButtonHeaderSecondaryContent>Logout</ButtonHeaderSecondaryContent>
+                            <ButtonHeaderSecondaryContent>Login</ButtonHeaderSecondaryContent>
                         </ButtonHeaderSecondary>
                         <ButtonHeaderPrimary>
-                            <ButtonHeaderIcon src={authentication.photoURL} alt={authentication.displayName} style={{ padding: "0", background: "transparent"}} />
-                        </ButtonHeaderPrimary>    
-                    </ButtonHeader>
-                </LogOut> :
-                <ButtonHeader onClick={logIn}>
-                    <ButtonHeaderSecondary>
-                        <ButtonHeaderSecondaryContent>Login</ButtonHeaderSecondaryContent>
-                    </ButtonHeaderSecondary>
-                    <ButtonHeaderPrimary>
-                        <ButtonHeaderIcon src={buttonIcon} alt='icon'/>
-                    </ButtonHeaderPrimary>
-                </ButtonHeader>}
-            </HeaderInner>
-        </Container>
-    </HeaderStyled>
-);
+                            <ButtonHeaderIcon src={buttonIcon} alt='icon'/>
+                        </ButtonHeaderPrimary>
+                    </ButtonHeader>}
+                </HeaderInner>
+            </Container>
+        </HeaderStyled>
+    )
+};

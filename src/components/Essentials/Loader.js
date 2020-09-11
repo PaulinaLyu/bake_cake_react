@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { keyFrameAnimation } from '../Style/KeyFrame';
+// import { Overlay } from '../Modal/ModalItem'
 
 export const LoaderItem = styled.div`
     display: inline-block;
