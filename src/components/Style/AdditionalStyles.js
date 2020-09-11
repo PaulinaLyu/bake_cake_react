@@ -22,18 +22,9 @@ export const Overlay = styled.div`
 	z-index: 2000;
 `;
 
-export const OrderTitle= styled.h2`
-	position: absolute;
-	top:50%;
-	right: -46px;
-	transform: rotate(270deg);
-	font-size: 28px;
-	font-weight: 800;
-`;
-
 export const Total= styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	margin: 0 35px 30px;
 	font-weight: 700;

@@ -75,9 +75,11 @@ const TotalPriceItemValue = styled.div`
 	font-size: 22px;
 `;
 
+
 export const ModalItem = () => {
 	const { openItem: { openItem, setOpenItem },
-			orders: { orders, setOrders } } = useContext(Context);
+			orders: { orders, setOrders }
+	} = useContext(Context);
 
 	const counter = useCount(openItem);
 	const toppings = useToppings(openItem);
@@ -89,7 +91,7 @@ export const ModalItem = () => {
 			setOpenItem(null);
 		}
 	}
-
+	
 	const order = {
 		...openItem,
 		count: counter.count,

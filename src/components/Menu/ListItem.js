@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { formatCurrency } from '../Functions/secondaryFunction';
+import { Context } from '../Functions/context';
 
 const List = styled.div`
 	display: flex;
@@ -85,20 +86,24 @@ const ItemPrice = styled.div`
  	color: #AD7D52;
 `;
 
-export const ListItem = ({ itemList, setOpenItem }) => (
-	<List>
-		{itemList.map(item => (
-			<Item 
-				key={item.id}
-				onClick={() => setOpenItem(item)}>
-				<ItemImg img={item.img} />
-				<ItemImgHover img={item.img} />
-				<ItemInfo>
-					<ItemCategory>{item.categories}</ItemCategory>
-					<ItemTitle>{item.name}</ItemTitle>
-					<ItemPrice>{formatCurrency(item.price)}</ItemPrice>
-				</ItemInfo>
-			</Item>
-		))}
-	</List>
-);
+export const ListItem = ({ itemList }) => {
+	const { openItem: { setOpenItem } } = useContext(Context);
+
+	return (
+		<List>
+			{itemList.map(item => (
+				<Item 
+					key={item.id}
+					onClick={() => setOpenItem(item)}>
+					<ItemImg img={item.img} />
+					<ItemImgHover img={item.img} />
+					<ItemInfo>
+						<ItemCategory>{item.categories}</ItemCategory>
+						<ItemTitle>{item.name}</ItemTitle>
+						<ItemPrice>{formatCurrency(item.price)}</ItemPrice>
+					</ItemInfo>
+				</Item>
+			))}
+		</List>
+	)
+};

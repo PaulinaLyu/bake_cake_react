@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Overlay } from '../Style/AdditionalStyles';
-import { OrderTitle, Total, TotalPrice } from '../Style/AdditionalStyles';
+import { Total, TotalPrice } from '../Style/AdditionalStyles';
 import { Button } from '../Essentials/Button';
 import { projection } from '../Functions/secondaryFunction';
 import { totalPriceItems } from '../Functions/secondaryFunction';
@@ -14,9 +14,15 @@ const Modal = styled.div`
     padding: 30px;
 `;
 
+const Title = styled.h3`
+    text-align: center;
+    margin-bottom: 20px;
+`;
+
 const Text = styled.h3`
     text-align: center;
     margin-bottom: 30px;
+    font-weight: 400;
 `;
 
 const rulesData = {
@@ -33,30 +39,39 @@ const sendOrder = (dataBase, orders, authentication) => {
     dataBase.ref('order').push().set({
         nameCustomer: authentication.displayName,
         email: authentication.email,
-        order: newOrder,
+        order: newOrder
     })
 }
 
-export const OrderConfirm = ( firebaseDatabase ) => {
+export const OrderConfirm = () => {
     const { orders: { orders, setOrders },
 			auth: { authentication },
-			orderConfirm: { setOpenOrderConfirm } } = useContext(Context);
+            orderConfirm: { setOpenOrderConfirm },
+            firebaseDatabase,
+    } = useContext(Context);
 
     const dataBase = firebaseDatabase();
     const total = orders.reduce((result, order)=>totalPriceItems(order)+ result, 0);
 
+    const closeConfirm = e => {
+        if (e.target.id === 'overlay') {
+            setOpenOrderConfirm(false);
+        }
+    }
+
     return (
-        <Overlay>
+        <Overlay id="overlay" onClick={closeConfirm}>
             <Modal>
-                <OrderTitle>{authentication.displayName}</OrderTitle>
-                <Text>Please, confirm your order.</Text>
+                <Title>{authentication.displayName}</Title>
+                <Text>Please, confirm your order</Text>
                 <Total>
-                    <span>Total</span>
+                    <h3>Total</h3>
                     <TotalPrice>{formatCurrency(total)}</TotalPrice>
                 </Total>
                 <Button onClick={() => {
                     sendOrder(dataBase, orders, authentication);
                     setOrders([]);
+                    setOpenOrderConfirm(false);
                 }}>
                     Confirm
                 </Button>

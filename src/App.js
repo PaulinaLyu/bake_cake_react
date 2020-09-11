@@ -40,13 +40,14 @@ function App() {
 			openItem,
 			orders,
 			orderConfirm,
+			firebaseDatabase: firebase.database,
 		}}>
 			<GlobalStyle />
 				<Order />
 				<Header />
 				<Menu  />
 				{openItem.openItem && <ModalItem />}
-				{orderConfirm.openOrderConfirm && <OrderConfirm firebaseDatabase={firebase.database} />}
+				{orderConfirm.openOrderConfirm && <OrderConfirm  />}
 		</Context.Provider>
   	);
 }

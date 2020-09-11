@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Container } from '../Style/AdditionalStyles';
 import { Button } from '../Essentials/Button';
-import { OrderTitle, Total, TotalPrice } from '../Style/AdditionalStyles';
+import { Container, Total, TotalPrice } from '../Style/AdditionalStyles';
 import { OrderListItem } from './OrderListItem';
-import { totalPriceItems } from '../Functions/secondaryFunction';
-import { formatCurrency } from '../Functions/secondaryFunction';
+import { totalPriceItems, formatCurrency } from '../Functions/secondaryFunction';
 import { Context } from '../Functions/context';
 
 const OrderStyled= styled.section`
@@ -39,6 +37,15 @@ const OrderInner= styled.div`
 	
 `;
 
+const OrderTitle= styled.h2`
+	position: absolute;
+	top:50%;
+	right: -46px;
+	transform: rotate(270deg);
+	font-size: 28px;
+	font-weight: 800;
+`;
+
 const OrderContent= styled.div`
 	flex-grow: 1;
 `;
@@ -54,10 +61,10 @@ const TotalTitle= styled.h3`
 `;
 
 export const Order = () => {
-	const { openItem: { setOpenItem },
-			orders: { orders, setOrders },
+	const { orders: { orders, setOrders },
 			auth: { authentication, logIn },
-			orderConfirm: { setOpenOrderConfirm } } = useContext(Context);
+			orderConfirm: { setOpenOrderConfirm },
+	} = useContext(Context);
 	
 	const deleteItem = index => {
 		setOrders([...orders].filter((item,i) => index !== i));	
@@ -79,28 +86,29 @@ export const Order = () => {
 								order={order} 
 								deleteItem={deleteItem}
 								index={index}
-								setOpenItem={setOpenItem}
 							/>)}
 						</OrderList> :
 						<EmptyList>The order list is empty</EmptyList>}
 						</OrderContent>
-						{orders.length &&
-						<>
-						<Total>
-							<TotalTitle>Total</TotalTitle>
-							<span>{totalCounter}</span>
-							<TotalPrice>{formatCurrency(total)}</TotalPrice>
-						</Total>
-						<Button onClick={() => {
-							if (authentication) {
-								setOpenOrderConfirm(true);
-							} else {
-								logIn();
-							} 
-						}}>Сheckout</Button>
-						</>}
+						{orders.length ?
+							<>
+								<Total>
+									<TotalTitle>Total</TotalTitle>
+									<span>{totalCounter}</span>
+									<TotalPrice>{formatCurrency(total)}</TotalPrice>
+								</Total>
+								<Button onClick={() => {
+									if (authentication) {
+										setOpenOrderConfirm(true);
+									} else {
+										logIn();
+									} 
+								}}>Сheckout</Button>
+							</> :
+							null
+						}
 					</OrderInner>
 				</Container>
 		</OrderStyled>
 	)
-}
+};
