@@ -23,6 +23,7 @@ const Text = styled.h3`
     text-align: center;
     margin-bottom: 30px;
     font-weight: 400;
+    line-height: 150%;
 `;
 
 const rulesData = {
@@ -58,7 +59,7 @@ export const OrderConfirm = () => {
             setOpenOrderConfirm(false);
         }
     }
-
+    
     return (
         <Overlay id="overlay" onClick={closeConfirm}>
             <Modal>
@@ -76,6 +77,11 @@ export const OrderConfirm = () => {
                     Confirm
                 </Button>
             </Modal>
+            {/* <Modal>
+                <Title>{authentication.displayName}</Title>
+                <Text>Thank you for choosing us</Text>
+                <Text style={{ fontSize: "16px" }}>Please, check your email ({authentication.email}), a letter with your order is already waiting for you there</Text>
+            </Modal> */}
         </Overlay>
     )
 }

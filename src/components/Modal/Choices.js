@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ExtraContent, ExtraLabel, ExtraInput, ExtraTitle } from './Extra';
+import { ContextItem } from '../Functions/contextItem';
 
 const ChoiceTitle = styled(ExtraTitle)``;
 const ChoiceContent = styled(ExtraContent)``;
 const ChoiceLabel = styled(ExtraLabel)``;
 const ChoiceRadio= styled(ExtraInput)``;
 
-export function Choices({ openItem, choice, changeChoices }) {
+export function Choices() {
+    const { choices: { choice, changeChoices }, openItem} = useContext(ContextItem);
     return (
         <>
             <ChoiceTitle>Сhoose</ChoiceTitle>

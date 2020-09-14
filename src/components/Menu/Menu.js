@@ -54,7 +54,3 @@ export const Menu = () => {
 		</MenuStyled>
 	)
 };
-
-// "orders": {
-// 	".write": true
-//   }

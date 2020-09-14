@@ -11,6 +11,7 @@ import { Choices } from './Choices';
 import { useToppings } from '../Hooks/useToppings';
 import { useChoices } from '../Hooks/useChoices';
 import { Context } from '../Functions/context';
+import { ContextItem } from '../Functions/contextItem';
 import { Overlay } from '../Style/AdditionalStyles';
 
 const Modal = styled.div`
@@ -113,31 +114,38 @@ export const ModalItem = () => {
 	}
 
 	return (
-		<Overlay id="overlay" onClick={closeModal}>
-			<Modal>
-				<Banner img={openItem.img} />
-				<Container>
-					<ModalInner>
-						<ModalInfo>	
-							<ModalTitle>{openItem.name}</ModalTitle>			
-							<ModalPrice>{formatCurrency(openItem.price)}</ModalPrice>
-						</ModalInfo>
-						<ModalDescription>{openItem.description}</ModalDescription>
-						<ModalCount>
-							<CountItem {...counter}/>
-							<TotalPriceItem>
-								<TotalPriceItemTitle>Price:</TotalPriceItemTitle>
-								<TotalPriceItemValue>{formatCurrency(totalPriceItems(order))}</TotalPriceItemValue>
-							</TotalPriceItem>
-						</ModalCount>
-						{openItem.toppings && <Toppings {...toppings} />}
-						{openItem.choices && <Choices {...choices} openItem={openItem} />}
-						<Button onClick={isEdit ? editOrder : addToOrder}
-								disabled={order.choices && !order.choice}
-								>{isEdit ? "Make changes" : "Add to cart"}</Button>
-					</ModalInner>
-				</Container>
-			</Modal>
-		</Overlay>
+		<ContextItem.Provider value={{
+			toppings,
+			choices,
+			counter,
+			openItem: openItem,
+		}}>
+			<Overlay id="overlay" onClick={closeModal}>
+				<Modal>
+					<Banner img={openItem.img} />
+					<Container>
+						<ModalInner>
+							<ModalInfo>	
+								<ModalTitle>{openItem.name}</ModalTitle>			
+								<ModalPrice>{formatCurrency(openItem.price)}</ModalPrice>
+							</ModalInfo>
+							<ModalDescription>{openItem.description}</ModalDescription>
+							<ModalCount>
+								<CountItem />
+								<TotalPriceItem>
+									<TotalPriceItemTitle>Price:</TotalPriceItemTitle>
+									<TotalPriceItemValue>{formatCurrency(totalPriceItems(order))}</TotalPriceItemValue>
+								</TotalPriceItem>
+							</ModalCount>
+							{openItem.toppings && <Toppings />}
+							{openItem.choices && <Choices />}
+							<Button onClick={isEdit ? editOrder : addToOrder}
+									disabled={order.choices && !order.choice}
+									>{isEdit ? "Make changes" : "Add to cart"}</Button>
+						</ModalInner>
+					</Container>
+				</Modal>
+			</Overlay>
+		</ContextItem.Provider>
 	)
 };

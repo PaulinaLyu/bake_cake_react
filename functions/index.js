@@ -26,11 +26,11 @@ const sendOrderEmail = data => {
                     ${data.order.map(({ name, count, price, topping, choice }) => {
                         const toppings = topping !== 'no topping' ? ` with ${topping}` : '';
                         const choices = choice !== 'no choices' ? ` ${choice}` : '';
-                        return `<li>${name}${toppings}${choices} - ${count} items(s), price ${price * count + (topping !== 'no topping' ? price * 0.1 * topping.length : 0)} €</li>`;
-                    })};
+                        return `<li><b>${name}</b>${toppings}${choices} - ${count} items(s), price ${price * count + (topping !== 'no topping' ? price * 0.1 * topping.length : 0)} €</li>`
+                    }).join('')}
                 </ul>
-                <p>Total: ${data.order.reduce((sum, item) =>
-                    sum + (item.price * item.count + (item.topping !== 'no topping' ? item.price * 0.1 * item.topping.length : 0)), 0)} €</p>
+                <p><b>Total: ${data.order.reduce((sum, item) =>
+                    sum + (item.price * item.count + (item.topping !== 'no topping' ? item.price * 0.1 * item.topping.length : 0)), 0)} €</b></p>
                 <p>Please, wait for your delivery.</p>
             </div>
         `,
