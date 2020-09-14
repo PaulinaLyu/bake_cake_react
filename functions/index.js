@@ -20,16 +20,18 @@ const sendOrderEmail = data => {
         subject: 'Your order from BakeCake',
         html: `
             <div>
-                <h2>Hello, ${data.nameClient}</h2>
+                <h2>Hello, ${data.nameCustomer}</h2>
                 <h3>Your Order:</h3>
                 <ul>
-                    ${data.order.map(({ itemName, count, price}) => (
-                        `<li>${itemName} - quantity ${count}, price ${price * count} €</li>`
-                    ))}
+                    ${data.order.map(({ name, count, price, topping, choice }) => {
+                        const toppings = topping !== 'no topping' ? ` with ${topping}` : '';
+                        const choices = choice !== 'no choices' ? ` ${choice}` : '';
+                        return `<li>${name}${toppings}${choices} - ${count} items(s), price ${price * count + (topping !== 'no topping' ? price * 0.1 * topping.length : 0)} €</li>`;
+                    })};
                 </ul>
                 <p>Total: ${data.order.reduce((sum, item) =>
-                    sum + (item.price + item.count), 0)} €</p>
-                <small>Wait for courier.</small>
+                    sum + (item.price * item.count + (item.topping !== 'no topping' ? item.price * 0.1 * item.topping.length : 0)), 0)} €</p>
+                <p>Please, wait for your delivery.</p>
             </div>
         `,
     };
@@ -38,4 +40,5 @@ const sendOrderEmail = data => {
 }
 
 exports.sendUserEmail = functions.database.ref('orders/{pushiD}')
-    .onCreate(order => sendOrderEmail(order));
+    .onCreate(order => sendOrderEmail(order.val()));
+

@@ -24,9 +24,9 @@ export const Overlay = styled.div`
 
 export const Total= styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	margin: 0 35px 30px;
+	margin-bottom: 30px;
 	font-weight: 700;
 	& span:first-child {
 		flex-grow: 1;
@@ -34,6 +34,7 @@ export const Total= styled.div`
 `;
 
 export const TotalPrice= styled.div`
+	font-size: 18px;
 	text-align: right;
 	min-width: 65px;
 	margin-left: 20px;

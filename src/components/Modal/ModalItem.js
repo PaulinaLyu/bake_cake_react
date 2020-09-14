@@ -51,6 +51,7 @@ const ModalCount = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-item: center;
+	flex-wrap: wrap;
 	margin-top: 15px;
 	margin-bottom: 27px;
 `;

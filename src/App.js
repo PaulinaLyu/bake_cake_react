@@ -16,13 +16,13 @@ import { useOrderConfirm } from './components/Hooks/useOrderConfirm';
 import { Context } from './components/Functions/context';
 
 const firebaseConfig = {
-	apiKey: "AIzaSyDd61Dxc0XY2ziMrdW2fbJRMwQndlu2d0I",
-	authDomain: "bakecake-dee3d.firebaseapp.com",
-	databaseURL: "https://bakecake-dee3d.firebaseio.com",
-	projectId: "bakecake-dee3d",
-	storageBucket: "bakecake-dee3d.appspot.com",
-	messagingSenderId: "661891515759",
-	appId: "1:661891515759:web:104023d28aa2fd0268549a"
+	apiKey: "AIzaSyDj8zRYwOGcytpWLEekyVq1pWgZPz0-brw",
+	authDomain: "bakecake-2b4d3.firebaseapp.com",
+	databaseURL: "https://bakecake-2b4d3.firebaseio.com",
+	projectId: "bakecake-2b4d3",
+	storageBucket: "bakecake-2b4d3.appspot.com",
+	messagingSenderId: "741812838811",
+	appId: "1:741812838811:web:2158488d4ef2f62a03813e"
 };
 
 firebase.initializeApp(firebaseConfig);

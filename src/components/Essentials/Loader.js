@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { keyFrameAnimation } from '../Style/KeyFrame';
-// import { Overlay } from '../Modal/ModalItem'
+import { Overlay } from '../Style/AdditionalStyles'
 
 export const LoaderItem = styled.div`
     display: inline-block;
@@ -35,21 +35,8 @@ export const LoaderItem = styled.div`
     }
 `;
 
-const Overlay = styled.div`
-	position: fixed;
-	top: 0;
-	left:0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	background-color: #fff;
-	z-index: 2000;
-`;
-
 export const Loader = () => (
-    <Overlay>
+    <Overlay style={{ backgroundColor: "#fff" }}>
         <LoaderItem>
             <div></div>
             <div></div>

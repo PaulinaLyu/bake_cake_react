@@ -113,3 +113,40 @@ export const Header = () => {
         </HeaderStyled>
     )
 };
+
+
+
+
+
+// @media (max-width: 1200px) {
+
+// 	.intro__inner {
+// 		height: auto;
+//     }
+    
+// }
+// @media (max-width: 767px) {
+
+// 	.intro__inner {
+// 		height: 500px;
+//     }
+    
+//     .intro__slider-arrows {
+//         display: none;
+//     }
+// }
+
+// @media (max-width: 575px) {
+//     .intro__inner {
+// 		height: 250px;
+//     }
+
+// 	.intro__title {
+//         font-size: 3.5rem;
+//         line-height: 4rem;
+// 	}
+
+// 	.intro__subtitle {
+// 		font-size: 1rem;
+//     }
+// }

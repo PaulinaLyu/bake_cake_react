@@ -36,7 +36,7 @@ const rulesData = {
 
 const sendOrder = (dataBase, orders, authentication) => {
     const newOrder = orders.map(projection(rulesData));
-    dataBase.ref('order').push().set({
+    dataBase.ref('orders').push().set({
         nameCustomer: authentication.displayName,
         email: authentication.email,
         order: newOrder
@@ -64,7 +64,7 @@ export const OrderConfirm = () => {
             <Modal>
                 <Title>{authentication.displayName}</Title>
                 <Text>Please, confirm your order</Text>
-                <Total>
+                <Total style={{ justifyContent: "center" }}>
                     <h3>Total</h3>
                     <TotalPrice>{formatCurrency(total)}</TotalPrice>
                 </Total>
