@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { formatCurrency } from '../Functions/secondaryFunction';
 import { Context } from '../Functions/context';
+import { device } from '../Style/MediaQuery';
 
 const List = styled.div`
 	display: flex;
@@ -25,7 +26,7 @@ const Item = styled.article`
 		cursore: pointer;
  		box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
 	   	transform: scale(1.10, 1.10);
-   	}
+	}	   
 `;
 
 const ItemImg = styled.div`
@@ -72,7 +73,11 @@ const ItemCategory = styled.div`
  	font-size: 13px;
  	letter-spacing: 2px;
  	font-weight: 500;
- 	color: #868686;
+	color: #868686;
+	 
+	@media ${device.tablet} { 
+		font-size: 11px;
+	}
 `;
 
 const ItemTitle = styled.h3`

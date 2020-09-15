@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { device } from '../Style/MediaQuery';
 
-export const ExtraTitle = styled.h3`
+export const ExtraTitle = styled.h4`
     margin-top: 15px;
     margin-bottom: 10px;
 `;
@@ -19,6 +20,10 @@ export const ExtraLabel = styled.label`
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: 400;
+
+    @media ${device.tablet} { 
+        font-size: 16px;
+    }
 `;
 
 export const ExtraInput = styled.input`

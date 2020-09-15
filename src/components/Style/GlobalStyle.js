@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { device } from './MediaQuery';
 
 export const GlobalStyle = createGlobalStyle`
 	html {
@@ -18,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-weight: 400;
 		letter-spacing: .5px;
 		color: black;
-	  }
+	}
 	  
 	img {
 		max-width: 100%;
@@ -40,19 +41,52 @@ export const GlobalStyle = createGlobalStyle`
 	h1 {
 		font-size: 50px;
 		letter-spacing: 6px;
+
+		@media ${device.tablet} { 
+			font-size: 40px;
+		}
+
+		@media ${device.mobileL} { 
+			font-size: 30px;
+		}
 	}
 
 	h2 {
 		font-size: 30px;
+
+		@media ${device.tablet} { 
+			font-size: 24px;
+		}
+
+		@media ${device.mobileL} { 
+			font-size: 20px;
+		}
 	}
 
 	h3 {
+		font-size: 20px;
+
+		@media ${device.mobileL} { 
+			font-size: 18px;
+		}
+	}
+
+	h4 {
 		font-size: 18px;
+
+		@media ${device.mobileL} { 
+			font-size: 16px;
+		}
 	}
 
 	p {
 		padding: 0;
 		margin: 0;
+		line-height: 1.5;
+
+		@media ${device.tablet} { 
+			font-size: 16px;
+		}
 	}
 
 	button, input {

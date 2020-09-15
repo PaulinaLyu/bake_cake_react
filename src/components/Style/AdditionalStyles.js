@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from './MediaQuery';
 
 export const Container = styled.div`
 	width: 100%;
@@ -6,7 +7,11 @@ export const Container = styled.div`
   	max-width: 1230px;
   	margin: 0 auto;
 	padding: 0 20px;
-	background: "transparent"
+	background: "transparent";
+
+	@media ${device.laptop} { 
+		padding-left: 70px;
+	  }
 `;
 
 export const Overlay = styled.div`

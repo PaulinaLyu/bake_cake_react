@@ -13,10 +13,15 @@ import { useChoices } from '../Hooks/useChoices';
 import { Context } from '../Functions/context';
 import { ContextItem } from '../Functions/contextItem';
 import { Overlay } from '../Style/AdditionalStyles';
+import { device } from '../Style/MediaQuery';
 
 const Modal = styled.div`
 	width: 600px;
 	background-color: #fff;
+
+	@media ${device.tablet} { 
+		width: 400px;
+	}
 `;
 
 const Banner = styled.div`
@@ -25,6 +30,10 @@ const Banner = styled.div`
 	background-image: url(${({img}) => img});
 	background-size: cover;
 	background-position: center;
+
+	@media ${device.mobileL} { 
+		display: none;
+	}
 `;
 
 const ModalInner = styled.section`
@@ -46,6 +55,10 @@ const ModalDescription = styled.p`
 	margin-top: 15px;
 	margin-bottom: 15px;
 	font-family: 'Raleway', sans-serif;
+
+	@media ${device.mobileL} { 
+		display: none;
+	}
 `;
 
 const ModalCount = styled.div`
@@ -55,6 +68,14 @@ const ModalCount = styled.div`
 	flex-wrap: wrap;
 	margin-top: 15px;
 	margin-bottom: 27px;
+
+	@media ${device.tablet} { 
+		flex-direction: column;
+	}
+
+	@media ${device.mobileL} { 
+		margin-bottom: 20px;
+	}
 `;
 
 const ModalPrice = styled.div`
@@ -68,13 +89,17 @@ const TotalPriceItem = styled.div`
 	align-items: center;
 `;
 
-const TotalPriceItemTitle = styled.h4`
-	font-size: 20px;
+const TotalPriceItemTitle = styled.h3`
 	margin-right: 10px;
+
 `;
 
 const TotalPriceItemValue = styled.div`
 	font-size: 22px;
+
+	@media ${device.tablet} { 
+		font-size: 18px;
+	}
 `;
 
 
@@ -123,7 +148,7 @@ export const ModalItem = () => {
 			<Overlay id="overlay" onClick={closeModal}>
 				<Modal>
 					<Banner img={openItem.img} />
-					<Container>
+					<Container style={{ padding: "0 20px" }}>
 						<ModalInner>
 							<ModalInfo>	
 								<ModalTitle>{openItem.name}</ModalTitle>			

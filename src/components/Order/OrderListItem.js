@@ -3,19 +3,32 @@ import styled from 'styled-components';
 import trashIcon from '../../img/trash.svg';
 import { totalPriceItems, formatCurrency } from '../Functions/secondaryFunction';
 import { Context } from '../Functions/context';
+import { device } from '../Style/MediaQuery';
 
 const OrderItemStyled = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
 	margin: 15px 0;
 	cursor: pointer;
+`;
+
+const ItemMain = styled.div`
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
 `;
 
 const ItemName = styled.div`
 	flex-grow: 1;
 	font-size: 18px;
 	font-weight: 700;
+
+	@media ${device.mobileL} { 
+		font-size: 16px;
+	}
 `;
 
 const ItemPrice = styled.div`
@@ -61,13 +74,15 @@ export const OrderListItem = ({ order, index, deleteItem }) => {
 
 	return (
 		<OrderItemStyled onClick={(e) => e.target !== refDeleteButton.current && setOpenItem({...order, index})}>
-			<ItemName>
-				{order.name} 
-				<Choice>{order.choice}</Choice>
-			</ItemName>
-			<span>{order.count}</span>
-			<ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
-			<TrashButton ref={refDeleteButton} onClick={() => deleteItem(index)} />
+			<ItemMain>
+				<ItemName>
+					{order.name} 
+					<Choice>{order.choice}</Choice>
+				</ItemName>
+				<span>{order.count}</span>
+				<ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
+				<TrashButton ref={refDeleteButton} onClick={() => deleteItem(index)} />
+			</ItemMain>
 			{topping && <Toppings>{topping}</Toppings>}
 		</OrderItemStyled>
 )} ;

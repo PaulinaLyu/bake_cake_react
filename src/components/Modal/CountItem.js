@@ -1,14 +1,22 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ContextItem } from '../Functions/contextItem';
+import { device } from '../Style/MediaQuery';
 
 const CountContent = styled.div`
     display: flex;
     align-items: center;
+
+    @media ${device.tablet} { 
+		margin-bottom: 30px;
+    }
+    
+    @media ${device.mobileL} { 
+		margin-bottom: 15px;
+	}
 `;
 
-const CountTitle = styled.h4`
-    font-size: 20px;
+const CountTitle = styled.h3`
     margin-right: 15px;
 `;
 
@@ -19,6 +27,11 @@ const CountInput = styled.input`
     color: #222;
     text-align: center;
     border: 2px solid #FEEED7;
+
+    @media ${device.tablet} { 
+        padding: 3px 2px 3px 2px;
+		font-size: 14px;
+    }
 `;
 
 const ButtonCount = styled.button`
@@ -32,8 +45,13 @@ const ButtonCount = styled.button`
     text-decoration: none;
     transition: background 0.4s ease;
 
-        :hover {
+    :hover {
         background-color: #FFDDAB;
+    }
+
+    @media ${device.tablet} { 
+        padding: 5px 5px 5px 5px;
+        font-size: 14px;
     }
 `;
 

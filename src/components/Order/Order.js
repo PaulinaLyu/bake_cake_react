@@ -5,6 +5,7 @@ import { Container, Total, TotalPrice } from '../Style/AdditionalStyles';
 import { OrderListItem } from './OrderListItem';
 import { totalPriceItems, formatCurrency } from '../Functions/secondaryFunction';
 import { Context } from '../Functions/context';
+import { device } from '../Style/MediaQuery';
 
 const OrderStyled= styled.section`
 	position: fixed;
@@ -13,8 +14,7 @@ const OrderStyled= styled.section`
 	z-index: 100;
 	padding-right: 50px;
 	background: #fff;
-	min-width: 420px;
-	max-width: 420px;
+	width: 420px;
 	height: calc(100% - 80px);
 	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.25);
 	transition: all 0.3s;
@@ -24,17 +24,25 @@ const OrderStyled= styled.section`
 		transform: translate3d(370px, 0, 0);
 		animation-timing-function: 1s ease-in;
 	}
-`;
 
-const OrderInner= styled.div`
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	background-color: #fff;
-	
+	@media ${device.tablet} { 
+		left: -350px;
+		width: 400px;
+
+		&:hover, &:focus{
+			transform: translate3d(350px, 0, 0);
+		}
+	}
+
+	@media ${device.mobileL} { 
+		left: -270px;
+		width: 320px;
+		flex-shrink: 1;
+
+		&:hover, &:focus{
+			transform: translate3d(270px, 0, 0);
+		}
+	}
 `;
 
 const OrderTitle= styled.h2`
@@ -44,6 +52,17 @@ const OrderTitle= styled.h2`
 	transform: rotate(270deg);
 	font-size: 28px;
 	font-weight: 800;
+`;
+
+const OrderInner= styled.div`
+	height: 100%;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #fff;
 `;
 
 const OrderContent= styled.div`
@@ -76,7 +95,7 @@ export const Order = () => {
 	return (
 		<OrderStyled>
 			<OrderTitle>Your order</OrderTitle>
-				<Container style={{ background: "#fff"}}>
+				<Container style={{ background: "#fff", padding: "0 20px"}}>
 					<OrderInner>
 						<OrderContent>
 						{orders.length ?

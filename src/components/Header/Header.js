@@ -4,6 +4,7 @@ import buttonIcon from '../../img/buttonicon.svg';
 import { Container } from '../Style/AdditionalStyles';
 import { Logo } from './Logo';
 import { Context } from '../Functions/context';
+import { device } from '../Style/MediaQuery';
 
 const HeaderStyled = styled.header`
     position: fixed;
@@ -37,6 +38,10 @@ const ButtonHeaderSecondary = styled.div`
     overflow: hidden;
     margin-left: 20px;
     height: 40px;
+
+    @media ${device.laptop} { 
+        visibility: hidden;
+    }
 `;
 
 const ButtonHeaderSecondaryContent = styled.div`
@@ -57,6 +62,12 @@ const ButtonHeaderSecondaryContent = styled.div`
 
     ${ButtonHeader}:hover & {
         transform: translate3d(0, 0, 0);
+    }
+
+    @media ${device.laptop} { 
+        ${ButtonHeader}:hover & {
+            transform: none;
+        }
     }
 `;
 
@@ -86,7 +97,7 @@ export const Header = () => {
 
     return (
         <HeaderStyled>
-            <Container>
+            <Container style={{ padding: "0 20px" }}>
                 <HeaderInner>
                     <Logo />
                     {authentication ? 
@@ -113,40 +124,3 @@ export const Header = () => {
         </HeaderStyled>
     )
 };
-
-
-
-
-
-// @media (max-width: 1200px) {
-
-// 	.intro__inner {
-// 		height: auto;
-//     }
-    
-// }
-// @media (max-width: 767px) {
-
-// 	.intro__inner {
-// 		height: 500px;
-//     }
-    
-//     .intro__slider-arrows {
-//         display: none;
-//     }
-// }
-
-// @media (max-width: 575px) {
-//     .intro__inner {
-// 		height: 250px;
-//     }
-
-// 	.intro__title {
-//         font-size: 3.5rem;
-//         line-height: 4rem;
-// 	}
-
-// 	.intro__subtitle {
-// 		font-size: 1rem;
-//     }
-// }
