@@ -102,7 +102,6 @@ const TotalPriceItemValue = styled.div`
 	}
 `;
 
-
 export const ModalItem = () => {
 	const { openItem: { openItem, setOpenItem },
 			orders: { orders, setOrders }
@@ -116,6 +115,7 @@ export const ModalItem = () => {
 	const closeModal = e => {
 		if (e.target.id === 'overlay') {
 			setOpenItem(null);
+			document.body.classList.remove('no-scroll');
 		}
 	}
 	
@@ -134,8 +134,9 @@ export const ModalItem = () => {
 	}
 
 	const addToOrder = () => {
-		setOrders([...orders, order])
+		setOrders([...orders, order]);
 		setOpenItem(null);
+		document.body.classList.remove('no-scroll');
 	}
 
 	return (
@@ -164,7 +165,7 @@ export const ModalItem = () => {
 							</ModalCount>
 							{openItem.toppings && <Toppings />}
 							{openItem.choices && <Choices />}
-							<Button onClick={isEdit ? editOrder : addToOrder}
+							<Button style={{ width: "250px" }} onClick={isEdit ? editOrder : addToOrder}
 									disabled={order.choices && !order.choice}
 									>{isEdit ? "Make changes" : "Add to cart"}</Button>
 						</ModalInner>

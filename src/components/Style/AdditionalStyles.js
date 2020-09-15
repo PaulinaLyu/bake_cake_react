@@ -31,7 +31,7 @@ export const Total= styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 30px;
+	margin: 30px 0;
 	font-weight: 700;
 	& span:first-child {
 		flex-grow: 1;

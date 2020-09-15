@@ -99,7 +99,10 @@ export const ListItem = ({ itemList }) => {
 			{itemList.map(item => (
 				<Item 
 					key={item.id}
-					onClick={() => setOpenItem(item)}>
+					onClick={() => {
+						setOpenItem(item);
+						document.body.classList.add('no-scroll');
+					}}>
 					<ItemImg img={item.img} />
 					<ItemImgHover img={item.img} />
 					<ItemInfo>

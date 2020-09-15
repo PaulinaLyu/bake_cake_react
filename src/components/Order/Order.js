@@ -35,12 +35,12 @@ const OrderStyled= styled.section`
 	}
 
 	@media ${device.mobileL} { 
-		left: -270px;
-		width: 320px;
+		left: -320px;
+		width: 370px;
 		flex-shrink: 1;
 
 		&:hover, &:focus{
-			transform: translate3d(270px, 0, 0);
+			transform: translate3d(320px, 0, 0);
 		}
 	}
 `;
@@ -63,6 +63,17 @@ const OrderInner= styled.div`
 	padding-top: 30px;
 	padding-bottom: 30px;
 	background-color: #fff;
+	overflow-y: auto; 
+
+	@media ${device.tablet} { 
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	@media ${device.mobileL} { 
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 `;
 
 const OrderContent= styled.div`

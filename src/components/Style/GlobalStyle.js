@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle`
 		letter-spacing: .5px;
 		color: black;
 	}
+
+	.no-scroll {
+		overflow: hidden;
+	}
 	  
 	img {
 		max-width: 100%;

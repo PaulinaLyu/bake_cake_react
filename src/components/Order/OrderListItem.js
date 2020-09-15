@@ -10,6 +10,10 @@ const OrderItemStyled = styled.div`
 	flex-wrap: wrap;
 	margin: 15px 0;
 	cursor: pointer;
+
+	@media ${device.mobileL} { 
+		margin: 20px 0;
+	}
 `;
 
 const ItemMain = styled.div`
@@ -25,6 +29,7 @@ const ItemName = styled.div`
 	flex-grow: 1;
 	font-size: 18px;
 	font-weight: 700;
+	white-space: pre-wrap;
 
 	@media ${device.mobileL} { 
 		font-size: 16px;
