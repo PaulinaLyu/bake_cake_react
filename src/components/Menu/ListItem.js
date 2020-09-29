@@ -20,8 +20,8 @@ const Item = styled.article`
  	position: relative;
  	overflow: hidden;
 	box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+	cursor: pointer;
 	 
-   
    	&:hover {
 		cursore: pointer;
  		box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);

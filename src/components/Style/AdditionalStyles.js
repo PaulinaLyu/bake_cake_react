@@ -9,7 +9,7 @@ export const Container = styled.div`
 	padding: 0 20px;
 	background: "transparent";
 
-	@media ${device.laptop} { 
+	@media ${device.laptopL} { 
 		padding-left: 70px;
 	  }
 `;
