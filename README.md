@@ -4,4 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Главная задача этого проекта разобраться в принципах работы SPA, ознакомиться с разработкой веб-приложения, используя React и платформу Firebase
 
-## https://bakecake-2b4d3.web.app
+https://bakecake-2b4d3.web.app
